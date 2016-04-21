@@ -13,6 +13,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "indent": ["error", 4],
         "no-const-assign": 1,
         "no-extra-semi": 0,
         "semi": 0,
