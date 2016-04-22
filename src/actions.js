@@ -1,3 +1,3 @@
 import * as blogpost from './blogpost/BlogActions'
 
-export default { ...blogpost }
+export default blogpost

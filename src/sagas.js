@@ -1,3 +1,3 @@
-import blogpost from './blogpost/BlogPostSaga'
+import * as blogpost from './blogpost/BlogPostSaga'
 
 export default blogpost
