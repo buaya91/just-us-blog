@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class BlogPost extends Component {
-  componentWillMount() {
+  componentDidMount() {
     const { actions } = this.props;
     actions.allPostRequested()
   }

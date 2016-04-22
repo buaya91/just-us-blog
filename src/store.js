@@ -3,11 +3,13 @@ import createSagaMiddleware from 'redux-saga'
 import reducers from './reducers'
 import sagas from './sagas'
 
-const sagaMiddleware = createSagaMiddleware(...sagas)
+const sagaMiddleware = createSagaMiddleware(sagas.watchAllPostRequested)
 
 const devtoolCreateStore = compose(
-  window.devToolsExtension ? window.devToolsExtension() : f => f,
-  applyMiddleware(sagaMiddleware)
+  applyMiddleware(sagaMiddleware),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore)
 
-export default devtoolCreateStore(reducers)
+const finalStore = devtoolCreateStore(reducers)
+
+export default finalStore
