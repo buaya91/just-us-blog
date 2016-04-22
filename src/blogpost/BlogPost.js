@@ -1,25 +1,27 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
+import TagList from '../tag/TagList'
 
 export default class BlogPost extends Component {
-  componentDidMount() {
-    const { actions } = this.props;
-    actions.allPostRequested()
-  }
-
   render() {
-    const { title, content } = this.props;
+    const { title, content, postAt, tags } = this.props.post;
 
     return (
       <div>
         <h3>{title}</h3>
         <div dangerouslySetInnerHTML={{ __html: content }}></div>
+        <div>{`Post at: ${postAt}`}</div>
+        <TagList tags={tags} />
       </div>
     )
   }
 }
 
 BlogPost.propTypes = {
-  actions: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  post: PropTypes.shape({
+    author: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    postAt: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    tags: PropTypes.array.isRequired,
+  }),
 }

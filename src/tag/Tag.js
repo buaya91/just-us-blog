@@ -1,0 +1,13 @@
+import React, { Component, PropTypes } from 'react';
+
+export default class Tag extends Component {
+  render() {
+    const { onClick, tag } = this.props;
+    return <button onClick={onClick} className="tag">{tag}</button>
+  }
+}
+
+Tag.propTypes = {
+  onClick: PropTypes.func,
+  tag: PropTypes.string.isRequired,
+}

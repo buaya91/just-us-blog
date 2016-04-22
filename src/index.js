@@ -8,10 +8,7 @@ import actions from './actions'
 
 const App = () => (
   <Provider store={store}>
-    <BlogPost
-      actions={bindActionCreators(actions, store.dispatch)} title="Big title"
-      content="<p>A paragraph</p>"
-    />
+    <div>Placeholder</div>
   </Provider>
 )
 
