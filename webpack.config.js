@@ -36,8 +36,6 @@ module.exports = {
           plugins: [
             "transform-runtime",
             "transform-decorators-legacy",
-            "add-module-exports",
-            "transform-object-rest-spread"
           ],
           presets: ['es2015', 'stage-0', 'react'],
         }

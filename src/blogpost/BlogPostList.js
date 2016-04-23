@@ -6,7 +6,7 @@ export default class BlogPostList extends Component {
     const { posts } = this.props
     return (
       <div>
-        {posts.map(p => <BlogPost />)}
+        {posts.map((p, k) => <BlogPost post={p} key={k} />)}
       </div>
     )
   }

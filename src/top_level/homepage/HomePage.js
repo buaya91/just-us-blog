@@ -5,7 +5,7 @@ export default class HomePage extends Component {
   render() {
     const { blogposts } = this.props
     return (
-      <BlogPostList posts={blogposts} />
+      <BlogPostList {...this.props} posts={blogposts} />
     )
   }
 }
