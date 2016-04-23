@@ -3,12 +3,13 @@ import TagList from '../tag/TagList'
 
 export default class BlogPost extends Component {
   render() {
-    const { title, content, postAt, tags } = this.props.post;
+    const { author, title, content, postAt, tags } = this.props.post;
 
     return (
-      <div>
-        <h3>{title}</h3>
+      <div className="blogpost">
+        <h2>{title}</h2>
         <div dangerouslySetInnerHTML={{ __html: content }}></div>
+        <div>{`Author: ${author}`}</div>
         <div>{`Post at: ${postAt}`}</div>
         <TagList tags={tags} />
       </div>

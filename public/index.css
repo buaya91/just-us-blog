@@ -29,3 +29,12 @@ li a:hover:not(.active) {
 li[selected] {
   background-color: #4CAF50;
 }
+
+.blogpost {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  border: solid;
+  border-color: #00d4b4;
+}
