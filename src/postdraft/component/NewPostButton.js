@@ -10,7 +10,7 @@ export default class NewPostButton extends Component {
         <PopUp show={showDraft}>
           <PostEditor postDraft={postDraft} />
         </PopUp>
-        <button onClick={() => actions.showPostDraft('new')}></button>
+        <button onClick={() => actions.showPostDraft('new')}>New Post</button>
       </div>
     )
   }

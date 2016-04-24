@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class PopUp extends Component {
-  closeWhenClickOutside(e) {
+  closeWhenClickOutside() {
     const { closePopUp } = this.props
     closePopUp()
-    e.stopPropagation()
   }
 
   render() {
@@ -12,7 +11,7 @@ export default class PopUp extends Component {
     if (!show) return null;
     return (
       <div className="full-overlay" onClick={::this.closeWhenClickOutside}>
-        <div className="overlay-content">{children}</div>
+        <div className="overlay-content" onClick={e => e.stopPropagation()}>{children}</div>
       </div>
     )
   }

@@ -10,6 +10,7 @@ export default class PostEditor extends Component {
         className="editor-panel"
         placeholder="Draft your post here ... (#Markdown supported)"
         onChange={updatePostDraft}
+        onClick={e => e.stopPropagation()}
         value={postDraft}
       />)
     const previewView =

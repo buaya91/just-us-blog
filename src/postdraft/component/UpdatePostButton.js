@@ -8,9 +8,12 @@ export default class UpdatePostButton extends Component {
     return (
       <div>
         <PopUp show={showDraft} closePopUp={() => actions.showPostDraft(undefined)}>
-          <PostEditor postDraft={postDraft} />
+          <PostEditor
+            postDraft={postDraft}
+            updatePostDraft={e => actions.updatePostEditDraft(pid, e.target.value)}
+          />
         </PopUp>
-        <button onClick={() => actions.showPostDraft(pid)}></button>
+        <button onClick={() => actions.showPostDraft(pid)}>Update post</button>
       </div>
     )
   }

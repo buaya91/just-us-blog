@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_NEW_POST_DRAFT: return state.set('new', action.payload)
     case UPDATE_POST_EDIT_DRAFT: {
-      const { pid, draft } = action.paylod
+      const { pid, draft } = action.payload
       return state.set(pid, draft)
     }
     // UI state
