@@ -7,8 +7,8 @@ export default class NavBar extends Component {
       <ul className="nav-bar">
         {
           navs.map((nv, idx) =>
-            <li onClick={nv.onClick} selected={idx === selected}>
-              <span>{nv.name}</span>
+            <li key={idx} onClick={nv.onClick} className={idx === selected ? 'selected' : ''}>
+              <a>{nv.name}</a>
             </li>
           )
         }

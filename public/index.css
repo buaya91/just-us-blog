@@ -1,40 +1,68 @@
 body {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-}
+  font-family: "Helvetica Neue", Helvetica, sans-serif; }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
+/* nav-bar */
+.nav-bar-container {
+  padding: 1.5em; }
+  .nav-bar-container ul.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333; }
+    .nav-bar-container ul.nav-bar li {
+      float: left;
+      flex: 1 1 auto; }
+      .nav-bar-container ul.nav-bar li.selected {
+        background-color: #4CAF50; }
+      .nav-bar-container ul.nav-bar li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        cursor: pointer; }
+        .nav-bar-container ul.nav-bar li a:hover {
+          background-color: #111; }
+  .nav-bar-container .nav-bar-content textarea {
+    width: 100%; }
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #111;
-}
-
-li[selected] {
-  background-color: #4CAF50;
-}
-
+/* blog post */
 .blogpost {
   margin-left: 10%;
   margin-right: 10%;
   padding-left: 1.5em;
   padding-right: 1.5em;
   border: solid;
-  border-color: #00d4b4;
-}
+  border-color: #00d4b4; }
+
+/* overlay */
+.full-overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/opacity */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  transition: 0.5s; }
+  .full-overlay .overlay-content {
+    border: thin;
+    border-style: solid;
+    border-color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 80%;
+    height: 80%;
+    padding: 1em;
+    z-index: 5;
+    /* center content */
+    transform: translate(10%, 10%); }
+
+/* post-editor */
+
+/*# sourceMappingURL=index.css.map */

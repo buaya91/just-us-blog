@@ -1,4 +1,4 @@
-import { blogpostsSelector } from '../../common/selectors'
+import { blogpostsSelector } from '../common/selectors'
 import { createSelector, createStructuredSelector } from 'reselect'
 
 const blogpostsArray = createSelector(

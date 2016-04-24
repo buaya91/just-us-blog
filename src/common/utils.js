@@ -9,3 +9,5 @@ export const propsToJS = obj => {
   })
   return result
 }
+
+export const arrayOverlap = (arr1, arr2) => arr1.includes(element => arr1.includes(element))

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import BlogPostList from '../../blogpost/BlogPostList'
+import BlogPostList from '../../blogpost/component/BlogPostList'
 
 export default class HomePage extends Component {
   render() {

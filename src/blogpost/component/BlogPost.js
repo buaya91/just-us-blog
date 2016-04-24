@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import TagList from '../tag/TagList'
+import TagList from '../../tag/TagList'
 
 export default class BlogPost extends Component {
   render() {

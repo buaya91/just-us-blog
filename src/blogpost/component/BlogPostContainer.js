@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux'
 import { propsToJS } from '../../common/utils'
-import { allBlogPostSelector } from './AllBlogPostSelector'
-import AllBlogPost from './AllBlogPost'
+import { allBlogPostSelector } from './../BlogPostSelector'
+import BlogPostList from './BlogPostList'
 
 @connect(allBlogPostSelector)
 export default class AllBlogPostContainer extends Component {
   render() {
     return (
-      <AllBlogPost {...propsToJS(this.props)} />
+      <BlogPostList {...propsToJS(this.props)} />
     )
   }
 }
