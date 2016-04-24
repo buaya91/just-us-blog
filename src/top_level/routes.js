@@ -1,4 +1,4 @@
-import PostEditor from '../newpost/component/PostEditor'
+import PostEditor from '../postdraft/component/PostEditor'
 import AllBlogPost from '../blogpost/component/BlogPostContainer'
 
 export default [

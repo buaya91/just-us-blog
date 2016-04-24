@@ -1,3 +1,4 @@
-import * as blogpost from './../blogpost/BlogActions'
+import * as blogPosts from '../blogpost/BlogActions'
+import * as postDrafts from '../postdraft/PostDraftActions'
 
-export default blogpost
+export default Object.assign(blogPosts, postDrafts)

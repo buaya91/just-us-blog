@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import blogposts from './../blogpost/BlogPostReducer'
+import blogPosts from './../blogpost/BlogPostReducer'
+import postDrafts from '../postdraft/PostDraftsReducer'
 
 export default combineReducers({
-  blogposts,
+  blogPosts,
+  postDrafts,
 })

@@ -1,12 +1,13 @@
-import { blogpostsSelector } from '../common/selectors'
+import { blogPostsSelector, postDraftsSelector } from '../common/selectors'
 import { createSelector, createStructuredSelector } from 'reselect'
 
 const blogpostsArray = createSelector(
-  blogpostsSelector,
+  blogPostsSelector,
   blogposts => blogposts.valueSeq()
 )
 
 export const allBlogPostSelector = createStructuredSelector({
-  blogposts: blogpostsArray,
+  blogPosts: blogpostsArray,
+  postDrafts: postDraftsSelector,
 })
 

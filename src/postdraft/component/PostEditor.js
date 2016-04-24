@@ -1,12 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import NavBarContainer from '../../container/navbar/HorizontalNavContainer'
-import PopUp from '../../container/popup/PopUp'
 import { markdown } from 'markdown'
 
 export default class PostEditor extends Component {
   render() {
-    const { postDraft } = this.props
-    const inputView = <textarea className="editor-panel" value={postDraft}></textarea>
+    const { postDraft, updatePostDraft } = this.props
+    const inputView =
+      (<textarea
+        className="editor-panel"
+        placeholder="Draft your post here ... (#Markdown supported)"
+        onChange={updatePostDraft}
+        value={postDraft}
+      />)
     const previewView =
       (<div
         className="editor-panel"
@@ -17,18 +22,16 @@ export default class PostEditor extends Component {
       { component: previewView, name: 'Preview' },
     ]
     return (
-      <PopUp>
         <NavBarContainer
           id="editor"
           views={views}
         />
-      </PopUp>
     )
   }
 }
 
 PostEditor.propTypes = {
-  postDraft: PropTypes.string,
+  postDraft: PropTypes.string.isRequired,
   updatePostDraft: PropTypes.func,
 }
 

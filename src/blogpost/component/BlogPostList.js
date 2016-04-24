@@ -16,11 +16,20 @@ const blogpostsFilter = (blogposts, query) => {
 
 export default class BlogPostList extends Component {
   render() {
-    const { blogposts, location } = this.props
-    const filteredPost = blogpostsFilter(blogposts, location.query || {})
+    const { actions, blogPosts, postDrafts, location } = this.props
+    const filteredPost = blogpostsFilter(blogPosts, location.query || {})
     return (
       <div>
-        {filteredPost.map((p, k) => <BlogPost post={p} key={k} />)}
+        {
+          filteredPost.map((p, k) =>
+            <BlogPost
+              actions={actions}
+              post={p}
+              postDraft={postDrafts[p.pid]}
+              showDraft={postDrafts.show === p.pid}
+              key={k}
+            />)
+        }
       </div>
     )
   }
@@ -28,10 +37,11 @@ export default class BlogPostList extends Component {
 
 BlogPostList.propTypes = {
   actions: PropTypes.object.isRequired,
-  blogposts: PropTypes.array.isRequired,
+  blogPosts: PropTypes.array.isRequired,
+  postDrafts: PropTypes.object.isRequired,
   location: PropTypes.object,
 }
 
 BlogPostList.defaultProps = {
-  blogposts: [],
+  blogPosts: [],
 }

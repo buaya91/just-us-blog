@@ -1,8 +1,8 @@
-import { blogpostsSelector } from '../../common/selectors'
+import { blogPostsSelector } from '../../common/selectors'
 import { createSelector, createStructuredSelector } from 'reselect'
 
 const blogpostsArray = createSelector(
-  blogpostsSelector,
+  blogPostsSelector,
   blogposts => blogposts.valueSeq()
 )
 
