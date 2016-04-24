@@ -6,8 +6,12 @@ import { markdown } from 'markdown'
 export default class PostEditor extends Component {
   render() {
     const { postDraft } = this.props
-    const inputView = <textarea value={postDraft}></textarea>
-    const previewView = <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(postDraft) }}></div>
+    const inputView = <textarea className="editor-panel" value={postDraft}></textarea>
+    const previewView =
+      (<div
+        className="editor-panel"
+        dangerouslySetInnerHTML={{ __html: markdown.toHTML(postDraft) }}
+      />)
     const views = [
       { component: inputView, name: 'Edit' },
       { component: previewView, name: 'Preview' },
@@ -25,6 +29,7 @@ export default class PostEditor extends Component {
 
 PostEditor.propTypes = {
   postDraft: PropTypes.string,
+  updatePostDraft: PropTypes.func,
 }
 
 PostEditor.defaultProps = {
