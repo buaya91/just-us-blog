@@ -7,7 +7,7 @@ export default class UpdatePostButton extends Component {
     const { actions, pid, postDraft, showDraft } = this.props
     return (
       <div>
-        <PopUp show={showDraft}>
+        <PopUp show={showDraft} closePopUp={() => actions.showPostDraft(undefined)}>
           <PostEditor postDraft={postDraft} />
         </PopUp>
         <button onClick={() => actions.showPostDraft(pid)}></button>

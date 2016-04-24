@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import BlogPost from './BlogPost'
 import { arrayOverlap } from '../../common/utils'
 
-const blogpostsFilter = (blogposts, query) => {
-  return blogposts.filter(p => {
+const blogpostsFilter = (blogposts, query) => (
+  blogposts.filter(p => {
     const { pid, author, tags } = query
     const tagsArr = tags && (Array.isArray(tags) ? tags : [tags])
     const pidMatched = pid ? p.pid === +pid : true
@@ -12,7 +12,7 @@ const blogpostsFilter = (blogposts, query) => {
 
     return pidMatched && authorMatched && tagsMatched
   })
-}
+)
 
 export default class BlogPostList extends Component {
   render() {
