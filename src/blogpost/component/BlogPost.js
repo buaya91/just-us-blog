@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import TagList from '../../tag/TagList'
+import TagList from '../../common/components/tag/TagList'
 import UpdatePostButton from '../../postdraft/component/UpdatePostButton'
 
 export default class BlogPost extends Component {

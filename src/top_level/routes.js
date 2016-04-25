@@ -3,5 +3,7 @@ import AllBlogPost from '../blogpost/component/BlogPostContainer'
 
 export default [
   { path: '/', component: AllBlogPost },
-  { path: '/edit', component: PostEditor },
+  { path: '/post/edit/:pid', component: PostEditor },
+  { path: '/post/new', component: PostEditor },
+  { path: '/login', component: PostEditor },
 ]
