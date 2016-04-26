@@ -41,16 +41,24 @@ body {
 }
 
 /* tags */
+.tag {
+  height: 2em;
+  margin-right: 0.2em;
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
+}
+
 .tag-list {
   display: flex;
   justify-content: flex-start;
-  .tag {
-    height: 2em;
-    margin-right: 0.2em;
-    background-color: cornflowerblue;
-    border: none;
-    color: white;
-  }
+}
+
+.tag-group {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0.3em;
+  flex-wrap: wrap;
 }
 
 /* share buttons */
@@ -114,3 +122,17 @@ body {
     }
   }
 }
+
+/* directory */
+#directory {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .link {
+    cursor: pointer;
+    padding-bottom: 2px;
+    color: blue;
+    text-decoration: underline;
+  }
+}
+

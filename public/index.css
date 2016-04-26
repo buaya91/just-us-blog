@@ -30,15 +30,22 @@ body {
           background-color: #111; }
 
 /* tags */
+.tag {
+  height: 2em;
+  margin-right: 0.2em;
+  background-color: cornflowerblue;
+  border: none;
+  color: white; }
+
 .tag-list {
   display: flex;
   justify-content: flex-start; }
-  .tag-list .tag {
-    height: 2em;
-    margin-right: 0.2em;
-    background-color: cornflowerblue;
-    border: none;
-    color: white; }
+
+.tag-group {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0.3em;
+  flex-wrap: wrap; }
 
 /* share buttons */
 .share-panel {
@@ -92,5 +99,16 @@ body {
   height: 70vh;
   overflow-y: scroll;
   resize: none; }
+
+/* directory */
+#directory {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+  #directory .link {
+    cursor: pointer;
+    padding-bottom: 2px;
+    color: blue;
+    text-decoration: underline; }
 
 /*# sourceMappingURL=index.css.map */

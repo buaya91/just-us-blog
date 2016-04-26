@@ -3,10 +3,10 @@ import Tag from './Tag'
 
 export default class TagGroup extends Component {
   render() {
-    const { tags } = this.props;
+    const { tags, onTagClick } = this.props;
     return (
       <div className="tag-group">
-        {tags.map(t => <Tag tag={t} />)}
+        {tags.map((t, k) => <Tag key={`tag${k}`} tag={t} onClick={onTagClick} />)}
       </div>
     )
   }
@@ -14,8 +14,5 @@ export default class TagGroup extends Component {
 
 TagGroup.propTypes = {
   tags: PropTypes.array.isRequired,
-}
-
-TagGroup.defaultProp = {
-  tags: [],
+  onTagClick: PropTypes.func,
 }

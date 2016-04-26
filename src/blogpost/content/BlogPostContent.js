@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import TagList from '../tag/TagList'
+import TagGroup from '../tag/TagGroup'
 import { markdown } from 'markdown'
 
 export default class BlogPostContent extends Component {
@@ -10,7 +10,7 @@ export default class BlogPostContent extends Component {
       <div>
         <h2>{title}</h2>
         <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(content) }}></div>
-        <TagList tags={tags} />
+        <TagGroup tags={tags} />
       </div>
     )
   }
