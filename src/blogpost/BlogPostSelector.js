@@ -7,7 +7,7 @@ const blogpostsArray = createSelector(
 )
 
 export const allBlogPostSelector = createStructuredSelector({
-  blogPosts: blogpostsArray,
+  blogPosts: blogPostsSelector,
   postDrafts: postDraftsSelector,
 })
 

@@ -5,7 +5,6 @@ body {
 }
 
 /* nav-bar */
-
 .nav-bar-container {
   padding: 1em;
 
@@ -41,12 +40,33 @@ body {
   }
 }
 
+/* tags */
+.tag-list {
+  display: flex;
+  justify-content: flex-start;
+  .tag {
+    height: 2em;
+    margin-right: 0.2em;
+    background-color: cornflowerblue;
+    border: none;
+    color: white;
+  }
+}
+
+/* share buttons */
+.share-panel {
+  display: flex;
+  max-width: 10em;
+  justify-content: space-around;
+}
+
 /* blog post */
 .blogpost {
   margin-left: 10%;
   margin-right: 10%;
   padding-left: 1.5em;
   padding-right: 1.5em;
+  padding-bottom: 1.5em;
   border: solid;
   border-color: #00d4b4;
 }
@@ -81,9 +101,16 @@ body {
 /* post-editor */
 #editor {
   .editor-panel {
-    width: 100%;
-    height: 80%;
-    overflow-y: scroll;
-    resize: none;
+    input {
+      width: 100%;
+      margin-top: 0.7em;
+      margin-bottom: 0.3em;
+    }
+    textarea {
+      width: 100%;
+      height: 70vh;
+      overflow-y: scroll;
+      resize: none;
+    }
   }
 }

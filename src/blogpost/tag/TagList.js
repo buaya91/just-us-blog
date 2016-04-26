@@ -6,7 +6,7 @@ export default class TagList extends Component {
     const { tags } = this.props;
     return (
       <div className="tag-list">
-        {tags.map(t => <Tag tag={t} />)}
+        {tags.map((t, k) => <Tag key={`tag${k}`} tag={t} />)}
       </div>
     )
   }

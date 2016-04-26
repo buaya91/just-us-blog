@@ -11,7 +11,8 @@
     "dev-win": "SET NODE_ENV=development&&babel-node server.js",
     "build-win": "rimraf dist && SET NODE_ENV=production&& webpack --config ./webpack.production.config.js --progress --profile --colors",
     "start-win": "SET NODE_ENV=production&&SET PORT=80&&babel-node server.js",
-    "test": "mocha --watch --compilers js:babel-core/register --require babel-polyfill --recursive src/**/test/*"
+    "test": "mocha --watch --compilers js:babel-core/register --require babel-polyfill --recursive src/**/test/*",
+    "storybook": "start-storybook -p 9001"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,8 @@
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.2.4",
+    "react-share": "^1.5.0",
+    "react-social": "^1.0.7",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
     "redux-saga": "^0.9.5",
