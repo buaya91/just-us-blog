@@ -32,7 +32,7 @@ BlogPost.propTypes = {
     postAt: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     tags: PropTypes.array.isRequired,
-  }),
+  }).isRequired,
   postDraft: PropTypes.shape({
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,

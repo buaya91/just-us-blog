@@ -70,8 +70,7 @@ body {
 
 /* blog post */
 .blogpost {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-top: 0.5em;
   padding-left: 1.5em;
   padding-right: 1.5em;
   padding-bottom: 1.5em;
@@ -136,3 +135,14 @@ body {
   }
 }
 
+/* homepage */
+#homepage {
+  display: flex;
+  width: 100%;
+  #directory {
+    flex: 1 1;
+  }
+  > div {
+    flex: 3 1 auto;
+  }
+}

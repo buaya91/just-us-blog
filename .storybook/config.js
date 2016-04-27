@@ -6,6 +6,7 @@ function loadStories() {
   require('./PostEditorStories')
   require('./TagGroupStories')
   require('./DirectoryStories')
+  require('./HomepageStories')
 }
 
 configure(loadStories, module);

@@ -3,7 +3,7 @@ import TagGroup from '../blogpost/tag/TagGroup'
 
 export default class Directory extends Component {
   render() {
-    const { links, tags } = this.props
+    const { links, searchTerms, tags } = this.props
     return (
       <div id="directory">
         {links}
@@ -16,5 +16,6 @@ export default class Directory extends Component {
 Directory.propTypes = {
   links: PropTypes.array.isRequired,
   tags: PropTypes.array.isRequired,
+  searchTerms: PropTypes.array,
   onTagClick: PropTypes.func,
 }
