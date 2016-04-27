@@ -7,6 +7,7 @@ function loadStories() {
   require('./TagGroupStories')
   require('./DirectoryStories')
   require('./HomepageStories')
+  require('./LoginFormStories')
 }
 
 configure(loadStories, module);

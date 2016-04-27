@@ -20,10 +20,14 @@ const postDraft = {
 const posts = { 0: post, 3: post }
 const drafts = { 0: postDraft }
 
+const actions = {
+  updatePostEditDraft: () => action(),
+}
+
 storiesOf('BlogPost', module)
   .add('Single', () => (
-    <BlogPost actions={{}} post={post} postDraft={postDraft} />
+    <BlogPost actions={actions} post={post} postDraft={postDraft} />
   ))
   .add('List', () => (
-    <BlogPostList actions={{}} posts={posts} postDrafts={drafts} />
+    <BlogPostList actions={actions} posts={posts} postDrafts={drafts} />
   ))
