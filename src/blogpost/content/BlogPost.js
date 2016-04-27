@@ -4,6 +4,11 @@ import UpdatePostButton from '../update/UpdatePostButton'
 import SharePanel from './../share/SharePanel'
 
 export default class BlogPost extends Component {
+  componentWillMount() {
+    const { actions, post } = this.props
+    actions.updatePostEditDraft(post.pid, post)
+  }
+
   render() {
     const { post } = this.props
     const { pid, author, postAt } = post;

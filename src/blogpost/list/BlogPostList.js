@@ -8,7 +8,7 @@ export default class BlogPostList extends Component {
       <div>
         {
           Object.keys(posts).map(pid =>
-            <BlogPost actions={actions} post={posts[pid]} postDraft={postDrafts[pid]} />)
+            <BlogPost key={pid} actions={actions} post={posts[pid]} postDraft={postDrafts[pid]} />)
         }
       </div>
     )

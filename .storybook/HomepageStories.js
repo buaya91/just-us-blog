@@ -17,7 +17,7 @@ const postDraft = {
   tags: ['New stuff', 'to be continued'],
 }
 
-const posts = { 0: post, 3: post }
+const posts = { 0: post, 3: post, 2: post, 4: post, 8: post, 5: post, 7: post, }
 const drafts = { 0: postDraft }
 
 const tags = ['tg1', 'tg1', 'tg1', 'tg1',

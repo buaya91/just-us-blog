@@ -1,6 +1,5 @@
-import PostEditor from '../blogpost/editor/PostEditor'
-import AllBlogPost from '../blogpost/content/BlogPost'
+import HomepageContainer from '../homepage/HomepageContainer'
 
 export default [
-  { path: '/', component: AllBlogPost },
+  { path: '/', component: HomepageContainer },
 ]

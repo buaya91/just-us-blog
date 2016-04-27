@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import PopUp from '../../container/popup/PopUp'
 import PostEditor from '../editor/PostEditor'
+
 
 export default class UpdatePostButton extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ export default class UpdatePostButton extends Component {
         <PopUp show={showDraft} closePopUp={::this.closeDraft}>
           <PostEditor
             postDraft={postDraft}
-            updatePostDraft={e => actions.updatePostEditDraft(pid, e.target.value)}
+            updatePostDraft={post => actions.updatePostEditDraft(pid, post)}
           />
         </PopUp>
         <button onClick={::this.showDraft}>Update post</button>
@@ -38,5 +40,5 @@ export default class UpdatePostButton extends Component {
 UpdatePostButton.propTypes = {
   actions: PropTypes.object.isRequired,
   pid: PropTypes.number.isRequired,
-  postDraft: PropTypes.object.isRequired,
+  postDraft: PropTypes.object,
 }
