@@ -3,6 +3,6 @@ import HomepageContainer from '../homepage/HomepageContainer'
 
 export default class LoginPage extends Component {
   render() {
-    return <HomepageContainer showLogin />
+    return <HomepageContainer {...this.props} showLogin />
   }
 }
