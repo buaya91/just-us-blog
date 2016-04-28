@@ -1,28 +1,7 @@
 import React from 'react'
 import { storiesOf, action } from '@kadira/storybook'
 import TagGroups from '../src/blogpost/tag/TagGroup'
-
-const tags = ['tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1', 'tg1'
-]
+import { tags } from './testProps'
 
 storiesOf('TagGroups', module)
   .add('', () => (

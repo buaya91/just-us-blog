@@ -1,36 +1,7 @@
 import React from 'react'
 import { storiesOf, action } from '@kadira/storybook'
 import Directory from '../src/directory/Directory'
-import { Link } from 'react-router'
-
-const tags = ['tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1',
-  'tg1', 'tg1', 'tg1', 'tg1', 'tg1', 'tg1'
-]
-
-const searchTermsArr = ['s1', 's2', 's3']
-
-const links = [
-  <Link className='link' to="/">Home</Link>,
-  <Link className='link' to="aboutus">About Us</Link>,
-]
+import { tags, searchTermsArr, links } from './testProps'
 
 storiesOf('Directory', module)
   .add('', () => (
