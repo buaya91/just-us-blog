@@ -125,15 +125,15 @@ body {
   justify-content: flex-start;
   padding: 3em; }
 
-/* homepage */
-#homepage .page-content {
+/* page-content layout */
+.page-content {
   position: relative;
   top: 2em;
   display: flex;
   width: 100%; }
-  #homepage .page-content #directory {
+  .page-content #directory {
     flex: 1 1; }
-  #homepage .page-content > div {
+  .page-content > div {
     flex: 3 1 auto; }
 
 /*# sourceMappingURL=index.css.map */

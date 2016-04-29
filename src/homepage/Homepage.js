@@ -8,7 +8,7 @@ export default class Homepage extends Component {
   render() {
     const { actions, showLoginPopUp } = this.props
     return (
-      <div id="homepage">
+      <div>
         <TopBar {...this.props} />
         <div className="page-content">
           <LoginPopUp {...this.props} show={showLoginPopUp} closeLoginPopUp={actions.closeLoginPopUp} />
