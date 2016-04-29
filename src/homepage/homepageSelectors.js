@@ -11,9 +11,20 @@ const tagsSelector = createSelector(
   }
 )
 
+const showLoginPopUpSelector = createSelector(
+  state => state.login,
+  login => login.get('showPopUp')
+)
+
+const loggedSelector = createSelector(
+  state => state.login,
+  login => login.get('status') === 'success'
+)
+
 export default createStructuredSelector({
   posts: state => state.blogPosts,
   postDrafts: state => state.postDrafts,
   tags: tagsSelector,
-  showLoginPopUp: state => state.login.get('showPopUp'),
+  showLoginPopUp: showLoginPopUpSelector,
+  logged: loggedSelector,
 })

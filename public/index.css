@@ -11,6 +11,8 @@ body {
 
 /* top-bar */
 #top-bar {
+  position: fixed;
+  width: 100%;
   background-color: darkslategrey;
   display: flex;
   line-height: 2em;
@@ -124,12 +126,14 @@ body {
   padding: 3em; }
 
 /* homepage */
-#homepage {
+#homepage .page-content {
+  position: relative;
+  top: 2em;
   display: flex;
   width: 100%; }
-  #homepage #directory {
+  #homepage .page-content #directory {
     flex: 1 1; }
-  #homepage > div {
+  #homepage .page-content > div {
     flex: 3 1 auto; }
 
 /*# sourceMappingURL=index.css.map */
