@@ -6,13 +6,19 @@ const initialState = fromJS({})
 export default (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCEEDED: {
-      return state.set('session', action.payload).set('status', 'success')
+      return state
+        .set('session', action.payload.session)
+        .set('name', action.payload.name)
+        .set('status', 'success')
     }
     case LOGIN_FAILED: {
       return state.set('status', 'fail').set('error', action.payload)
     }
     case LOGIN_REQUESTED: {
-      return state.delete('status')
+      return state
+        .delete('status')
+        .delete('session')
+        .delete('name')
     }
     case SHOW_LOGIN_POPUP: {
       return state.set('showPopUp', true)

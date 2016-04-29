@@ -13,9 +13,12 @@ export const loginRequested = (username, password) => ({
   },
 })
 
-export const loginSuccess = session => ({
+export const loginSuccess = (session, name) => ({
   type: LOGIN_SUCCEEDED,
-  payload: session,
+  payload: {
+    session,
+    name,
+  },
 })
 
 export const loginFailed = err => ({
