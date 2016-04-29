@@ -11,6 +11,27 @@ body {
     color: blue;
     text-decoration: underline;
   }
+
+  button {
+    color: white;
+    background-color: #0078e7;
+    font-size: 1em;
+    padding: .5em 1em;
+    border: 0 rgba(0,0,0,0);
+    text-decoration: none;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &:visited {
+      color: #265778;
+    }
+  }
 }
 
 /* top-bar */
@@ -32,6 +53,10 @@ body {
 /* nav-bar */
 .nav-bar-container {
   padding: 1em;
+
+  .nav-bar-content {
+    display: flex;
+  }
 
   ul.nav-bar {
     display: flex;
@@ -116,23 +141,30 @@ body {
   transition: 0.5s;
 
   .overlay-content {
+    display: inline-block;
     border: thin;
     border-style: solid;
     border-color: white;
     background-color: whitesmoke;
-    width: 80%;
-    height: 80%;
+    max-width: 80%;
+    max-height: 80%;
     padding: 0.5em;
     z-index: 5;
     overflow: auto;
+
     /* center content */
-    transform: translate(10%, 10%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
 /* post-editor */
 #editor {
   .editor-panel {
+    width: 70vw;
+
     input {
       width: 100%;
       margin-top: 0.7em;
@@ -167,5 +199,15 @@ body {
 
   > div {
     flex: 3 1 auto;
+  }
+}
+
+/* */
+.form {
+  label {
+    position: relative;
+    left: 3em;
+    display: inline-block;
+    width: 10em;
   }
 }

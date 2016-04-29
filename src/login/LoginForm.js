@@ -13,12 +13,17 @@ export default class LoginForm extends Component {
     const { login } = this.props
     const { username, password } = this.state
     return (
-      <div>
+      <div className="form">
         <fieldset>
-          <label>Username: </label>
-          <input type="text" value={username} onChange={e => this.setState({ username: e.target.value })} />
-          <label>Password: </label>
-          <input type="password" value={password} onChange={e => this.setState({ password: e.target.value })} />
+          <legend>Login Form</legend>
+          <div>
+            <label>Username: </label>
+            <input type="text" value={username} onChange={e => this.setState({ username: e.target.value })} />
+          </div>
+          <div>
+            <label>Password: </label>
+            <input type="password" value={password} onChange={e => this.setState({ password: e.target.value })} />
+          </div>
         </fieldset>
         <button onClick={() => login(username, password)}>Login</button>
       </div>
