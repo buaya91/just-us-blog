@@ -4,6 +4,27 @@ body {
   input, textarea {
     font-size: 1em;
   }
+
+  .link {
+    cursor: pointer;
+    padding-bottom: 2px;
+    color: blue;
+    text-decoration: underline;
+  }
+}
+
+/* top-bar */
+#top-bar {
+  background-color: darkslategrey;
+  display: flex;
+  line-height: 2em;
+  flex-direction: row-reverse;
+
+  span {
+    color: white;
+    font-size: 1.2em;
+    padding-right: 1.0em;
+  }
 }
 
 /* nav-bar */
@@ -129,12 +150,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  .link {
-    cursor: pointer;
-    padding-bottom: 2px;
-    color: blue;
-    text-decoration: underline;
-  }
+  padding: 3em;
 }
 
 /* homepage */
