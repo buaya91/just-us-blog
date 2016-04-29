@@ -15,7 +15,7 @@ function* login(action) {
       headers,
       body: JSON.stringify({ username, password }),
     })
-    const session = yield loginAttempt.json()
+    const session = yield loginAttempt.headers.get('Set-Authorization')
     yield put(loginSuccess(session))
   } catch (err) {
     console.log(`Login failed: ${err}`)

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { browserHistory } from 'react-router'
+import { browserHistory, Link } from 'react-router'
 import Directory from '../directory/Directory'
 import BlogPostList from '../blogpost/list/BlogPostList'
 import LoginPopUp from '../login/LoginPopUp'
