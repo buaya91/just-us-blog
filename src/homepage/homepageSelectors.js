@@ -15,4 +15,5 @@ export default createStructuredSelector({
   posts: state => state.blogPosts,
   postDrafts: state => state.postDrafts,
   tags: tagsSelector,
+  showLoginPopUp: state => state.login.get('showPopUp'),
 })
