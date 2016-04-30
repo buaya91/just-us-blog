@@ -4,12 +4,13 @@ import PostEditor from '../editor/PostEditor'
 
 export default class PostEditorPopUp extends Component {
   render() {
-    const { postDraft, closePopUp, show, updatePostDraft } = this.props
+    const { postDraft, closePopUp, show, updatePostDraft, submitChange } = this.props
     return (
       <PopUp show={show} closePopUp={closePopUp}>
         <PostEditor
           postDraft={postDraft}
           updatePostDraft={updatePostDraft}
+          submitChange={submitChange}
         />
       </PopUp>
     )

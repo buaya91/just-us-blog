@@ -1,5 +1,5 @@
 import { takeEvery, takeLatest } from 'redux-saga'
-import { call, put } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 import {
   addPosts,
   ALL_POST_REQUESTED,
@@ -7,6 +7,7 @@ import {
   postCreateSuccess,
   POST_CREATE_REQUESTED,
 } from './BlogActions'
+import { fetchWithSessionAndJson } from '../common/sagaHelpers'
 
 const postUrl = 'http://localhost:9000/post'
 
@@ -21,17 +22,18 @@ export function* fetchAllPost() {
 }
 
 export function* updatePost(action) {
-  try {
-    //
-  } catch (err) {
-    console.log(`Update attempt failed: ${err}`)
-  }
+
 }
 
 export function* createPost(action) {
   try {
     const post = action.payload
-    const createAttempt = yield call(window.fetch, postUrl, { method: 'post', body: JSON.stringify(post) })
+    const createAttempt = yield call(
+      fetchWithSessionAndJson,
+      window.fetch,
+      postUrl,
+      { method: 'post', body: JSON.stringify(post) }
+    )
     if (!createAttempt.ok) {
       yield put(postCreateFailed())
     } else {
@@ -43,6 +45,8 @@ export function* createPost(action) {
 }
 
 export function* watchPostActions() {
-  yield* takeEvery(ALL_POST_REQUESTED, fetchAllPost)
-  yield* takeLatest(POST_CREATE_REQUESTED, createPost)
+  yield [
+    takeEvery(ALL_POST_REQUESTED, fetchAllPost),
+    takeLatest(POST_CREATE_REQUESTED, createPost),
+  ]
 }
