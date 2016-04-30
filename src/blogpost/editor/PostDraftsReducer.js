@@ -6,7 +6,13 @@ import {
   HIDE_POST_DRAFT,
 } from './PostDraftActions'
 
-const initialState = fromJS({})
+const initialState = fromJS({
+  new: {
+    title: '',
+    content: '',
+    tags: [],
+  },
+})
 
 export default (state = initialState, action) => {
   switch (action.type) {

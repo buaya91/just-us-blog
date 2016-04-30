@@ -21,3 +21,9 @@ BlogPostContent.propTypes = {
   content: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
 }
+
+BlogPostContent.defaultProps = {
+  title: '',
+  content: '',
+  tags: [],
+}
