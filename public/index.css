@@ -143,7 +143,7 @@ body {
     margin-bottom: 0.3em; }
   #editor .editor-panel textarea {
     width: 100%;
-    height: 80%;
+    height: 90%;
     overflow-y: scroll;
     resize: none; }
 

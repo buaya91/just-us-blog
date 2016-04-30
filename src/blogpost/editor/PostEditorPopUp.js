@@ -20,5 +20,6 @@ PostEditorPopUp.propTypes = {
   closePopUp: PropTypes.func,
   postDraft: PropTypes.object,
   show: PropTypes.bool,
+  submitChange: PropTypes.func,
   updatePostDraft: PropTypes.func,
 }

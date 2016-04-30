@@ -27,6 +27,7 @@ export default class NewPostButton extends Component {
           closePopUp={::this.closeDraft}
           postDraft={postDraft}
           updatePostDraft={actions.updateNewPostDraft}
+          submitChange={actions.createPostRequested}
         />
         <button onClick={::this.showDraft}>New post</button>
       </div>

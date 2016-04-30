@@ -26,6 +26,7 @@ export default class UpdatePostButton extends Component {
           closePopUp={::this.closeDraft}
           postDraft={postDraft}
           updatePostDraft={post => actions.updatePostEditDraft(pid, post)}
+          submitChange={post => actions.postUpdateRequested(pid, post)}
         />
         <button onClick={::this.showDraft}>Update post</button>
       </div>

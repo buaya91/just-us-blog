@@ -35,7 +35,7 @@ export default class PostEditor extends Component {
   }
 
   render() {
-    const { postDraft } = this.props
+    const { postDraft, submitChange } = this.props
     const { title, content, tags } = postDraft
 
     const inputView =
@@ -65,10 +65,13 @@ export default class PostEditor extends Component {
     ]
 
     return (
+      <div>
         <NavBarContainer
           id="editor"
           views={views}
         />
+        <button onClick={() => submitChange(postDraft)}>Submit</button>
+      </div>
     )
   }
 }
@@ -80,4 +83,5 @@ PostEditor.propTypes = {
     tags: PropTypes.array.isRequired,
   }),
   updatePostDraft: PropTypes.func,
+  submitChange: PropTypes.func,
 }
