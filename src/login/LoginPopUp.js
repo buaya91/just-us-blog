@@ -7,7 +7,7 @@ export default class LoginPopUp extends Component {
     const { actions, show, closeLoginPopUp } = this.props
     return (
       <PopUp show={show} closePopUp={closeLoginPopUp}>
-        <LoginForm login={actions.loginRequested} />
+        <LoginForm {...this.props} login={actions.loginRequested} />
       </PopUp>
     )
   }

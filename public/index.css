@@ -25,6 +25,9 @@ body {
     box-sizing: border-box; }
     body button:visited {
       color: #265778; }
+  body .err-msg {
+    font-size: 0.8em;
+    color: red; }
 
 /* top-bar */
 #top-bar {
@@ -164,7 +167,7 @@ body {
 /* */
 .form label {
   position: relative;
-  left: 3em;
+  left: 1em;
   display: inline-block;
   width: 10em; }
 

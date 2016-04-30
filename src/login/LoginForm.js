@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import ErrorMsg from '../common/component/ErrorMsg'
 
 export default class LoginForm extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export default class LoginForm extends Component {
   }
 
   render() {
-    const { login } = this.props
+    const { login, loginError } = this.props
     const { username, password } = this.state
     return (
       <div className="form">
@@ -24,6 +25,7 @@ export default class LoginForm extends Component {
             <label>Password: </label>
             <input type="password" value={password} onChange={e => this.setState({ password: e.target.value })} />
           </div>
+          <ErrorMsg>{loginError}</ErrorMsg>
         </fieldset>
         <button onClick={() => login(username, password)}>Login</button>
       </div>
@@ -33,4 +35,5 @@ export default class LoginForm extends Component {
 
 LoginForm.propTypes = {
   login: PropTypes.func,
+  loginError: PropTypes.string,
 }

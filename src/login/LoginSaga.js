@@ -1,6 +1,6 @@
 import { takeEvery } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
-import { LOGIN_REQUESTED, loginSuccess, loginFailed } from './LoginActions'
+import { LOGIN_REQUESTED, loginSuccess, loginFailed, closeLoginPopUp } from './LoginActions'
 
 const loginUrl = 'http://localhost:9000/login'
 
@@ -15,12 +15,19 @@ function* login(action) {
       headers,
       body: JSON.stringify({ username, password }),
     })
-    const session = yield loginAttempt.headers.get('Set-Authorization')
-    const name = yield loginAttempt.json()
-    yield put(loginSuccess(session, name))
+
+    if (!loginAttempt.ok) {
+      const err = yield loginAttempt.text()
+      yield put(loginFailed(err))
+    } else {
+      const session = yield loginAttempt.headers.get('Set-Authorization')
+      const body = yield loginAttempt.json()
+      yield put(loginSuccess(session, body.name))
+      yield put(closeLoginPopUp())
+    }
   } catch (err) {
-    yield put(loginFailed())
-    console.log(`Login failed: ${err}`)
+    // network error
+    console.log(err)
   }
 }
 

@@ -21,10 +21,17 @@ const loggedSelector = createSelector(
   login => login.get('status') === 'success'
 )
 
+const loginErrorSelector = createSelector(
+  state => state.login,
+  login => login.get('error')
+)
+
 export default createStructuredSelector({
+  logged: loggedSelector,
+  loginError: loginErrorSelector,
   posts: state => state.blogPosts,
   postDrafts: state => state.postDrafts,
   tags: tagsSelector,
   showLoginPopUp: showLoginPopUpSelector,
-  logged: loggedSelector,
+  username: state => state.login.get('name'),
 })
