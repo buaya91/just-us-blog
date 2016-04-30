@@ -19,7 +19,7 @@ export default class LoginForm extends Component {
           <legend>Login Form</legend>
           <div>
             <label>Username: </label>
-            <input type="text" value={username} onChange={e => this.setState({ username: e.target.value })} />
+            <input type="text" value={username} onChange={e => this.setState({ username: e.target.value })} autoComplete />
           </div>
           <div>
             <label>Password: </label>
