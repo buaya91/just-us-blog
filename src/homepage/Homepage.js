@@ -3,7 +3,7 @@ import Directory from '../directory/Directory'
 import BlogPostList from '../blogpost/list/BlogPostList'
 import LoginPopUp from '../login/LoginPopUp'
 import TopBar from '../topbar/TopBar'
-import NewPostButton from '../blogpost/update/NewPostButton'
+import NewPostButton from '../blogpost/update/NewPostButton';
 
 export default class Homepage extends Component {
   render() {
@@ -11,8 +11,8 @@ export default class Homepage extends Component {
     return (
       <div>
         <TopBar {...this.props} />
+        <NewPostButton {...this.props} id="new-post-button" postDraft={postDrafts.new} />
         <div className="page-content">
-          <NewPostButton {...this.props} postDraft={postDrafts.new} />
           <LoginPopUp {...this.props} show={showLoginPopUp} closeLoginPopUp={actions.closeLoginPopUp} />
           <Directory {...this.props} />
           <BlogPostList {...this.props} />

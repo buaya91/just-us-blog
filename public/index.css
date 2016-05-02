@@ -28,6 +28,10 @@ body {
   body .err-msg {
     font-size: 0.8em;
     color: red; }
+  body #new-post-button {
+    position: relative;
+    top: 2.3em;
+    float: right; }
 
 /* top-bar */
 #top-bar {
@@ -37,6 +41,8 @@ body {
   display: flex;
   line-height: 2em;
   flex-direction: row-reverse; }
+  #top-bar * {
+    margin-right: 0.5em; }
   #top-bar span {
     color: white;
     font-size: 1.2em;

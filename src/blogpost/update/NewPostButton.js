@@ -29,7 +29,7 @@ export default class NewPostButton extends Component {
           updatePostDraft={actions.updateNewPostDraft}
           submitChange={actions.createPostRequested}
         />
-        <button onClick={::this.showDraft}>New post</button>
+        <button {...this.props} onClick={::this.showDraft}>New post</button>
       </div>
     )
   }
@@ -38,5 +38,6 @@ export default class NewPostButton extends Component {
 NewPostButton.propTypes = {
   actions: PropTypes.object.isRequired,
   postDraft: PropTypes.object,
+  postCreateStatus: PropTypes.bool,
 }
 
