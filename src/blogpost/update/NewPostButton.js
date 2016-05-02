@@ -1,35 +1,22 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import PostEditorPopUp from '../editor/PostEditorPopUp'
+import { newPostButtonSelector } from './updateSelectors'
 
+@connect(newPostButtonSelector)
 export default class NewPostButton extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showDraft: false,
-    }
-  }
-
-  showDraft() {
-    this.setState({ showDraft: true })
-  }
-
-  closeDraft() {
-    this.setState({ showDraft: false })
-  }
-
   render() {
-    const { actions, postDraft } = this.props
-    const { showDraft } = this.state
+    const { actions, postDraft, show } = this.props
     return (
       <div>
         <PostEditorPopUp
-          show={showDraft}
-          closePopUp={::this.closeDraft}
+          show={show}
+          closePopUp={actions.hideNewPostEditor}
           postDraft={postDraft}
           updatePostDraft={actions.updateNewPostDraft}
           submitChange={actions.createPostRequested}
         />
-        <button {...this.props} onClick={::this.showDraft}>New post</button>
+        <button {...this.props} onClick={actions.showNewPostEditor}>New post</button>
       </div>
     )
   }
@@ -38,6 +25,6 @@ export default class NewPostButton extends Component {
 NewPostButton.propTypes = {
   actions: PropTypes.object.isRequired,
   postDraft: PropTypes.object,
-  postCreateStatus: PropTypes.bool,
+  show: PropTypes.bool,
 }
 

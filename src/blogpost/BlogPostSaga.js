@@ -1,5 +1,5 @@
 import { takeEvery, takeLatest } from 'redux-saga'
-import { call, put, select } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import {
   addPosts,
   ALL_POST_REQUESTED,

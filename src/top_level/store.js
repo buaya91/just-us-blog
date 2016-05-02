@@ -3,7 +3,12 @@ import createSagaMiddleware from 'redux-saga'
 import reducers from './reducers'
 import sagas from './sagas'
 
-const sagaMiddleware = createSagaMiddleware(sagas.fetchAllPost, sagas.watchPostActions, sagas.watchLoginRequest)
+const sagaMiddleware = createSagaMiddleware(
+  sagas.fetchAllPost,
+  sagas.watchPostActions,
+  sagas.watchLoginRequest,
+  sagas.watchUIState
+)
 
 const devtoolCreateStore = compose(
   applyMiddleware(sagaMiddleware),
