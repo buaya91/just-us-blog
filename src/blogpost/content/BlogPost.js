@@ -5,13 +5,13 @@ import SharePanel from './../share/SharePanel'
 
 export default class BlogPost extends Component {
   componentWillMount() {
-    const { actions, post } = this.props
-    actions.updatePostEditDraft(post.pid, post)
+    const { actions, post, pid } = this.props
+    actions.updatePostEditDraft(pid, post)
   }
 
   render() {
-    const { post } = this.props
-    const { pid, author, postAt } = post;
+    const { post, pid } = this.props
+    const { author, postAt } = post;
 
     return (
       <div className="blogpost">
@@ -30,8 +30,8 @@ export default class BlogPost extends Component {
 
 BlogPost.propTypes = {
   actions: PropTypes.object.isRequired,
+  pid: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   post: PropTypes.shape({
-    pid: PropTypes.number.isRequired,
     author: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     postAt: PropTypes.string.isRequired,

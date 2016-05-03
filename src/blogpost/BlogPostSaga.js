@@ -1,5 +1,5 @@
 import { takeEvery, takeLatest } from 'redux-saga'
-import { call, put } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 import {
   addPosts,
   ALL_POST_REQUESTED,
@@ -33,8 +33,11 @@ export function* updatePost(action) {
       `${postUrl}/${pid}`,
       { method: 'post', body: JSON.stringify(update) }
     )
-    if (!updateAttempt.ok) {
-      yield put(postUpdateSuccess(pid, update))
+    if (updateAttempt.ok) {
+      const author = yield select(state => state.login.get('name'))
+      const postAt = (new Date()).toDateString()
+      const updatedPost = Object.assign(update, { author, postAt })
+      yield put(postUpdateSuccess(pid, updatedPost))
     } else {
       const { error } = updateAttempt.json()
       yield put(postUpdateFailed(pid, error))
@@ -56,7 +59,11 @@ export function* createPost(action) {
     if (!createAttempt.ok) {
       yield put(postCreateFailed())
     } else {
-      yield put(postCreateSuccess(post))
+      const { pid } = yield createAttempt.json()
+      const author = yield select(state => state.login.get('name'))
+      const postAt = (new Date()).toDateString()
+      const createdPost = Object.assign(post, { author, postAt })
+      yield put(postCreateSuccess(pid, createdPost))
     }
   } catch (err) {
     console.log(`Create attempt failed: ${err}`)

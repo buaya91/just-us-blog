@@ -1,34 +1,22 @@
 import React, { Component, PropTypes } from 'react'
 import PostEditorPopUp from '../editor/PostEditorPopUp'
+import { connect } from 'react-redux'
+import { updatePostButtonSelector } from './updateSelectors'
 
+@connect(updatePostButtonSelector)
 export default class UpdatePostButton extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showDraft: false,
-    }
-  }
-
-  showDraft() {
-    this.setState({ showDraft: true })
-  }
-
-  closeDraft() {
-    this.setState({ showDraft: false })
-  }
   render() {
-    const { showDraft } = this.state
-    const { actions, pid, postDraft } = this.props
+    const { actions, pid, postDraft, idToShow } = this.props
     return (
       <div>
         <PostEditorPopUp
-          show={showDraft}
-          closePopUp={::this.closeDraft}
+          show={idToShow === pid}
+          closePopUp={() => actions.hideUpdatePostEditor(pid)}
           postDraft={postDraft}
           updatePostDraft={post => actions.updatePostEditDraft(pid, post)}
           submitChange={post => actions.postUpdateRequested(pid, post)}
         />
-        <button onClick={::this.showDraft}>Update post</button>
+        <button onClick={() => actions.showUpdatePostEditor(pid)}>Update post</button>
       </div>
     )
   }
@@ -36,6 +24,7 @@ export default class UpdatePostButton extends Component {
 
 UpdatePostButton.propTypes = {
   actions: PropTypes.object.isRequired,
-  pid: PropTypes.number.isRequired,
+  pid: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   postDraft: PropTypes.object,
+  idToShow: PropTypes.number,
 }

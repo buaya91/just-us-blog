@@ -13,7 +13,7 @@ function* hideNew() {
 }
 
 function* hideUpdate(action) {
-  const pid = action.payload
+  const { pid } = action.payload
   yield put(hideUpdatePostEditor(pid))
 }
 

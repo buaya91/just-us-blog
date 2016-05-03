@@ -21,16 +21,6 @@ export default (state = initialState, action) => {
       const { pid, draft } = action.payload
       return state.set(pid, draft)
     }
-    // UI state
-    case SHOW_POST_DRAFT: {
-      if (state.get(action.payload)) {
-        return state.set('show', action.payload)
-      }
-      return state.set(action.payload, '').set('show', action.payload)
-    }
-    case HIDE_POST_DRAFT: {
-      return state.set('show', undefined)
-    }
     default: return state
   }
 }

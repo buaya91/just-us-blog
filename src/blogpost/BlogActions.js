@@ -27,11 +27,11 @@ export const postUpdateRequested = (pid, update) => ({
   },
 })
 
-export const postUpdateSuccess = (pid, updatedPost) => ({
+export const postUpdateSuccess = (pid, update) => ({
   type: POST_UPDATE_SUCCESS,
-  paylod: {
+  payload: {
     pid,
-    updatedPost,
+    update,
   },
 })
 
@@ -48,11 +48,15 @@ export const createPostRequested = post => ({
   payload: post,
 })
 
-export const postCreateSuccess = post => ({
+export const postCreateSuccess = (pid, post) => ({
   type: POST_CREATE_SUCCESS,
-  payload: post,
+  payload: {
+    post,
+    pid,
+  },
 })
 
-export const postCreateFailed = () => ({
+export const postCreateFailed = err => ({
   type: POST_CREATE_FAILED,
+  payload: err,
 })
