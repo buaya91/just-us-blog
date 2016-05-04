@@ -37,7 +37,7 @@ module.exports = {
         exclude: /node_modules/,
         include: __dirname,
         query: {
-          plugins: ['transform-runtime'],
+          plugins: ['transform-runtime', "transform-decorators-legacy"],
           presets: ['es2015', 'stage-0', 'react'],
         }
       }, 
