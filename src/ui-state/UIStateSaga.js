@@ -1,12 +1,10 @@
 import { takeEvery } from 'redux-saga'
-import { showNewPostEditor, showUpdatePostEditor, hideNewPostEditor, hideUpdatePostEditor } from './UIStateActions'
+import { hideNewPostEditor, hideUpdatePostEditor } from './UIStateActions'
 import {
   POST_UPDATE_SUCCESS,
-  POST_UPDATE_FAILED,
   POST_CREATE_SUCCESS,
-  POST_CREATE_FAILED,
 } from '../blogpost/BlogActions'
-import { call, put } from 'redux-saga/effects'
+import { put } from 'redux-saga/effects'
 
 function* hideNew() {
   yield put(hideNewPostEditor())

@@ -2,8 +2,9 @@ import { takeEvery } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
 import { LOGIN_REQUESTED, loginSuccess, loginFailed, closeLoginPopUp } from './LoginActions'
 import { fetchWithJson } from '../common/sagaHelpers'
+import config from 'config'
 
-const loginUrl = 'http://localhost:9000/login'
+const loginUrl = `${config.get('api')}/login`
 
 function* login(action) {
   try {

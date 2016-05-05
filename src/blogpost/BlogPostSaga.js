@@ -11,8 +11,9 @@ import {
   POST_UPDATE_REQUESTED,
 } from './BlogActions'
 import { fetchWithSessionAndJson } from '../common/sagaHelpers'
+import config from 'config'
 
-const postUrl = 'http://localhost:9000/post'
+const postUrl = `${config.get('api')}/post`
 
 export function* fetchAllPost() {
   try {
