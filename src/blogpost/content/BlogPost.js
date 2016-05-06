@@ -22,7 +22,7 @@ export default class BlogPost extends Component {
           {...this.props}
           pid={pid}
         />
-        <SharePanel url={`${location.host}/post/${pid}`} title="Just Us Blog" />
+        <SharePanel url={`${location.host}/post?pid${pid}`} title="Just Us Blog" />
       </div>
     )
   }

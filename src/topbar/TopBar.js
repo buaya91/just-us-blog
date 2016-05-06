@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 import selector from './topbarSelectors'
 
 @connect(selector)
@@ -16,6 +17,7 @@ export default class TopBar extends Component {
             </span> :
             <span className="link" onClick={actions.showLoginPopUp}>Login</span>
         }
+        <span className="link" onClick={() => browserHistory.push('/')}>Home</span>
       </div>
     )
   }

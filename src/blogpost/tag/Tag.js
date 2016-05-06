@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { browserHistory } from 'react-router'
 
 export default class Tag extends Component {
   render() {
@@ -10,4 +11,8 @@ export default class Tag extends Component {
 Tag.propTypes = {
   onClick: PropTypes.func,
   tag: PropTypes.string.isRequired,
+}
+
+Tag.defaultProps = {
+  onClick: tg => browserHistory.push(`/post?tag=${tg}`),
 }
