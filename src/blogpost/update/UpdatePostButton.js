@@ -6,7 +6,8 @@ import { updatePostButtonSelector } from './updateSelectors'
 @connect(updatePostButtonSelector)
 export default class UpdatePostButton extends Component {
   render() {
-    const { actions, pid, postDraft, idToShow } = this.props
+    const { actions, pid, postDraft, idToShow, showButton } = this.props
+    if (!showButton) return null
     return (
       <div>
         <PostEditorPopUp
@@ -27,4 +28,5 @@ UpdatePostButton.propTypes = {
   pid: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   postDraft: PropTypes.object,
   idToShow: PropTypes.number,
+  showButton: PropTypes.bool,
 }

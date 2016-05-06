@@ -1,5 +1,12 @@
 import { fromJS } from 'immutable'
-import { LOGIN_SUCCEEDED, LOGIN_FAILED, LOGIN_REQUESTED, SHOW_LOGIN_POPUP, CLOSE_LOGIN_POPUP } from './LoginActions'
+import {
+  LOGIN_SUCCEEDED,
+  LOGIN_FAILED,
+  LOGIN_REQUESTED,
+  LOGOUT,
+  SHOW_LOGIN_POPUP,
+  CLOSE_LOGIN_POPUP,
+} from './LoginActions'
 
 const initialState = fromJS({})
 
@@ -19,6 +26,9 @@ export default (state = initialState, action) => {
         .delete('status')
         .delete('session')
         .delete('name')
+    }
+    case LOGOUT: {
+      return initialState
     }
     case SHOW_LOGIN_POPUP: {
       return state.set('showPopUp', true)

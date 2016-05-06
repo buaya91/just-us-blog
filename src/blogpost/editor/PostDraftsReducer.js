@@ -2,9 +2,8 @@ import { fromJS } from 'immutable'
 import {
   UPDATE_NEW_POST_DRAFT,
   UPDATE_POST_EDIT_DRAFT,
-  SHOW_POST_DRAFT,
-  HIDE_POST_DRAFT,
 } from './PostDraftActions'
+import { LOGOUT } from '../../login/LoginActions'
 
 const initialState = fromJS({
   new: {
@@ -20,6 +19,9 @@ export default (state = initialState, action) => {
     case UPDATE_POST_EDIT_DRAFT: {
       const { pid, draft } = action.payload
       return state.set(pid, draft)
+    }
+    case LOGOUT: {
+      return initialState
     }
     default: return state
   }

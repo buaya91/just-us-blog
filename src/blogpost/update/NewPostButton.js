@@ -6,11 +6,12 @@ import { newPostButtonSelector } from './updateSelectors'
 @connect(newPostButtonSelector)
 export default class NewPostButton extends Component {
   render() {
-    const { actions, postDraft, show } = this.props
+    const { actions, postDraft, showEditor, showButton } = this.props
+    if (!showButton) return null
     return (
       <div>
         <PostEditorPopUp
-          show={show}
+          show={showEditor}
           closePopUp={actions.hideNewPostEditor}
           postDraft={postDraft}
           updatePostDraft={actions.updateNewPostDraft}
@@ -25,6 +26,7 @@ export default class NewPostButton extends Component {
 NewPostButton.propTypes = {
   actions: PropTypes.object.isRequired,
   postDraft: PropTypes.object,
-  show: PropTypes.bool,
+  showEditor: PropTypes.bool,
+  showButton: PropTypes.bool,
 }
 

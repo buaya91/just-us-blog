@@ -7,7 +7,10 @@ export default class TopBar extends Component {
       <div id="top-bar">
         {
           logged ?
-            <span>{`Hi ${username || ''}, have a great day !!`}</span> :
+            <span>
+              <span>{`Hi ${username || ''}, have a great day !!`}</span>
+              <span className="link" onClick={actions.logout}>Log out</span>
+            </span> :
             <span className="link" onClick={actions.showLoginPopUp}>Login</span>
         }
       </div>
