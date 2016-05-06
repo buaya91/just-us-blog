@@ -10,7 +10,7 @@ import {
   postUpdateSuccess,
   POST_UPDATE_REQUESTED,
 } from './BlogActions'
-import { updatePostEditDraft } from 'editor/PostDraftActions'
+import { updatePostEditDraft } from './editor/PostDraftActions'
 import { fetchWithSessionAndJson } from '../common/sagaHelpers'
 import config from '../config'
 
