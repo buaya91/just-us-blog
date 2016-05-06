@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import selector from './topbarSelectors'
 
+@connect(selector)
 export default class TopBar extends Component {
   render() {
     const { actions, logged, username } = this.props

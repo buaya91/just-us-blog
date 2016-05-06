@@ -24,9 +24,10 @@ export default class PostEditor extends Component {
     })
   }
 
-  updateTags(tags) {
+  updateTags(tagsInStr) {
     const { postDraft, updatePostDraft } = this.props
     const { content, title } = postDraft
+    const tags = tagsInStr.split(',')
     updatePostDraft({
       title,
       content,
@@ -52,6 +53,7 @@ export default class PostEditor extends Component {
           onClick={e => e.stopPropagation()}
           value={content}
         />
+        <input type="text" value={tags.join(',')} onChange={e => this.updateTags(e.target.value)} placeholder="tags"/>
       </div>)
 
     const previewView =
