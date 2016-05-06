@@ -1,4 +1,6 @@
 import { createStore, compose, applyMiddleware } from 'redux'
+import { createMiddleware, createLoader } from 'redux-storage'
+import createEngine from 'redux-storage-engine-localstorage'
 import createSagaMiddleware from 'redux-saga'
 import reducers from './reducers'
 import sagas from './sagas'
@@ -10,11 +12,16 @@ const sagaMiddleware = createSagaMiddleware(
   sagas.watchUIState
 )
 
+const localStorageEngine = createEngine('just-us')
+const localStorageMiddleware = createMiddleware(localStorageEngine)
+
 const devtoolCreateStore = compose(
-  applyMiddleware(sagaMiddleware),
+  applyMiddleware(sagaMiddleware, localStorageMiddleware),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore)
 
 const finalStore = devtoolCreateStore(reducers)
+
+createLoader(localStorageEngine)(finalStore)
 
 export default finalStore

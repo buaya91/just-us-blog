@@ -6,3 +6,4 @@ dist/
 typings.json
 public/index.css.map
 public/index.css
+npm-debug.log
