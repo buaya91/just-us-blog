@@ -10,11 +10,11 @@ export default (state = initialState, action) => {
     }
     case POST_CREATE_SUCCESS: {
       const { pid, post } = action.payload
-      return state.set(pid, fromJS(post))
+      return state.set(+pid, fromJS(post))
     }
     case POST_UPDATE_SUCCESS: {
       const { pid, update } = action.payload
-      return state.set(pid, fromJS(update))
+      return state.set(+pid, fromJS(update))
     }
     default: return state
   }

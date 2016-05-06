@@ -10,6 +10,7 @@ import {
   postUpdateSuccess,
   POST_UPDATE_REQUESTED,
 } from './BlogActions'
+import { updatePostEditDraft } from 'editor/PostDraftActions'
 import { fetchWithSessionAndJson } from '../common/sagaHelpers'
 import config from '../config'
 
@@ -39,6 +40,7 @@ export function* updatePost(action) {
       const postAt = (new Date()).toDateString()
       const updatedPost = Object.assign(update, { author, postAt })
       yield put(postUpdateSuccess(pid, updatedPost))
+      yield put(updatePostEditDraft(pid, updatedPost))
     } else {
       const { error } = updateAttempt.json()
       yield put(postUpdateFailed(pid, error))
