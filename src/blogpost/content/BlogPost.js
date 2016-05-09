@@ -15,13 +15,12 @@ export default class BlogPost extends Component {
 
     return (
       <div className="blogpost">
+        <UpdatePostButton {...this.props} pid={pid} />
         <BlogPostContent {...post} />
-        <div>{`Author: ${author}`}</div>
-        <div>{`Post at: ${postAt}`}</div>
-        <UpdatePostButton
-          {...this.props}
-          pid={pid}
-        />
+        <div className="post-footer">
+          <span>{`Author: ${author}`}</span>
+          <span>{`Post at: ${postAt}`}</span>
+        </div>
         <SharePanel url={`${location.host}/post?pid${pid}`} title="Just Us Blog" />
       </div>
     )

@@ -81,36 +81,51 @@ body {
           background-color: #111; }
 
 /* tags */
-.tag {
-  height: 2em;
-  margin-right: 0.2em;
-  background-color: cornflowerblue;
-  border: none;
-  color: white; }
-
-.tag-list {
-  display: flex;
-  justify-content: flex-start; }
-
 .tag-group {
   display: flex;
   justify-content: flex-start;
   margin-top: 0.3em;
   flex-wrap: wrap; }
-
-/* share buttons */
-.share-panel {
-  display: flex;
-  max-width: 10em;
-  justify-content: space-around; }
+  .tag-group .tag {
+    padding: .2em .4em;
+    font-size: 0.8em;
+    margin-right: 0.2em;
+    background-color: cornflowerblue;
+    border: none;
+    color: white; }
 
 /* blog post */
 .blogpost {
   padding-left: 1.5em;
   padding-right: 1.5em;
-  padding-bottom: 1.5em;
+  padding-bottom: 2em;
   border: solid;
   border-color: #00d4b4; }
+  .blogpost .tag-group {
+    margin-top: 2em; }
+  .blogpost .post-footer {
+    position: relative;
+    top: 2.2em;
+    font-size: 0.8em; }
+    .blogpost .post-footer span {
+      margin-right: 3em; }
+  .blogpost .update-button {
+    display: inline-block;
+    position: relative;
+    float: right;
+    top: 0.7em;
+    right: -0.4em; }
+    .blogpost .update-button button {
+      background: url(./edit.svg) no-repeat;
+      text-indent: -100em; }
+  .blogpost .share-panel {
+    display: flex;
+    max-width: 10em;
+    justify-content: space-around;
+    position: relative;
+    float: right;
+    bottom: 0.2em;
+    right: -0.3em; }
 
 /* overlay */
 .full-overlay {

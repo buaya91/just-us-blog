@@ -9,7 +9,7 @@ export default class UpdatePostButton extends Component {
     const { actions, pid, postDraft, idToShow, showButton } = this.props
     if (!showButton) return null
     return (
-      <div>
+      <div className="update-button">
         <PostEditorPopUp
           show={idToShow === pid}
           closePopUp={() => actions.hideUpdatePostEditor(pid)}
