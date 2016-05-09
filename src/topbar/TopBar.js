@@ -1,23 +1,20 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
+import NewPostButton from '../blogpost/update/NewPostButton'
 import selector from './topbarSelectors'
 
 @connect(selector)
 export default class TopBar extends Component {
   render() {
-    const { actions, logged, username } = this.props
+    const { logged } = this.props
     return (
       <div id="top-bar">
-        {
-          logged ?
-            <span>
-              <span>{`Hi ${username || ''}, have a great day !!`}</span>
-              <span className="link" onClick={actions.logout}>Log out</span>
-            </span> :
-            <span className="link" onClick={actions.showLoginPopUp}>Login</span>
-        }
         <span className="link" onClick={() => browserHistory.push('/')}>Home</span>
+        <span className="link" onClick={() => browserHistory.push('/about-us')}>About Us</span>
+        <NewPostButton {...this.props} showButton={logged} />
+        <input id="top-bar-search" type="search" results="5" placeholder="Search" />
+        <button>Search</button>
       </div>
     )
   }

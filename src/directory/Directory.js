@@ -1,13 +1,12 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
 import TagGroup from '../blogpost/tag/TagGroup'
 
 export default class Directory extends Component {
   render() {
-    const { links, searchTerms, tags } = this.props
+    const { imgSrc, tags } = this.props
     return (
       <div id="directory">
-        {links.map((l, k) => React.cloneElement(l, { key: k }))}
+        <img src={imgSrc} />
         <TagGroup tags={tags} />
       </div>
     )
@@ -15,15 +14,10 @@ export default class Directory extends Component {
 }
 
 Directory.propTypes = {
-  links: PropTypes.array.isRequired,
+  imgSrc: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
-  searchTerms: PropTypes.array,
-  onTagClick: PropTypes.func,
 }
 
 Directory.defaultProps = {
-  links: [
-    <Link className="link" to="/">Home</Link>,
-    <Link className="link" to="aboutus">About Us</Link>,
-  ],
+  imgSrc: 'https://s-media-cache-ak0.pinimg.com/236x/e2/e5/31/e2e5315aa1abafb41a600ba2fba6652f.jpg',
 }

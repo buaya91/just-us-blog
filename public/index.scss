@@ -52,7 +52,7 @@ body {
   background-color: darkslategrey;
   display: flex;
   line-height: 2em;
-  flex-direction: row-reverse;
+  flex-direction: row;
 
   * {
     margin-right: 0.5em;
@@ -61,7 +61,13 @@ body {
   span {
     color: white;
     font-size: 1.2em;
+    padding-left: 1.0em;
     padding-right: 1.0em;
+  }
+
+  #top-bar-search {
+    margin-top: 0.3em;
+    margin-left: auto;
   }
 }
 
@@ -135,7 +141,6 @@ body {
 
 /* blog post */
 .blogpost {
-  margin-top: 0.5em;
   padding-left: 1.5em;
   padding-right: 1.5em;
   padding-bottom: 1.5em;
@@ -199,7 +204,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 3em;
+  padding: 2em;
 }
 
 /* page-content layout */
@@ -213,6 +218,7 @@ body {
   }
 
   > div {
+    padding-top: 2em;
     flex: 3 1 auto;
   }
 }

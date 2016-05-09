@@ -1,6 +1,7 @@
 import { createStructuredSelector } from 'reselect'
 
 export const newPostButtonSelector = createStructuredSelector({
+  postDraft: state => state.postDrafts.get('new').toJS(),
   showEditor: state => state.uiState.get('showNewPopUp'),
   showButton: state => state.login.get('session'),
 })
