@@ -37,12 +37,6 @@ body {
     font-size: 0.8em;
     color: red;
   }
-
-  #new-post-button {
-    position: relative;
-    top: 2.3em;
-    float: right;
-  }
 }
 
 /* top-bar */
@@ -56,6 +50,17 @@ body {
 
   * {
     margin-right: 0.5em;
+  }
+
+  #new-post-button {
+    button {
+      background-color: transparent;
+      svg {
+        width: 1.3em;
+        height: 1.3em;
+        fill: white;
+      }
+    }
   }
 
   span {

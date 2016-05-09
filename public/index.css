@@ -28,10 +28,6 @@ body {
   body .err-msg {
     font-size: 0.8em;
     color: red; }
-  body #new-post-button {
-    position: relative;
-    top: 2.3em;
-    float: right; }
 
 /* top-bar */
 #top-bar {
@@ -43,6 +39,12 @@ body {
   flex-direction: row; }
   #top-bar * {
     margin-right: 0.5em; }
+  #top-bar #new-post-button button {
+    background-color: transparent; }
+    #top-bar #new-post-button button svg {
+      width: 1.3em;
+      height: 1.3em;
+      fill: white; }
   #top-bar span {
     color: white;
     font-size: 1.2em;
