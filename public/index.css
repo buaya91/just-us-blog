@@ -128,8 +128,11 @@ body {
     top: 0.7em;
     right: -0.4em; }
     .blogpost .update-button .edit-button {
-      background: url(./edit.svg) no-repeat;
-      text-indent: -1000em; }
+      background-color: transparent; }
+      .blogpost .update-button .edit-button svg {
+        height: 2em;
+        width: 2em;
+        fill: black; }
   .blogpost .share-panel {
     display: flex;
     max-width: 10em;

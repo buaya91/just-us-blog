@@ -176,8 +176,12 @@ body {
     top: 0.7em;
     right: -0.4em;
     .edit-button {
-      background: url(./edit.svg) no-repeat;
-      text-indent: -1000em;
+      background-color: transparent;
+      svg {
+        height: 2em;
+        width: 2em;
+        fill: black;
+      }
     }
   }
 
