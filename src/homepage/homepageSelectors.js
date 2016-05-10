@@ -12,8 +12,8 @@ const tagsSelector = createSelector(
 )
 
 const showLoginPopUpSelector = createSelector(
-  state => state.login,
-  login => login.get('showPopUp')
+  state => state.uiState,
+  uiState => uiState.get('showLoginPopUp')
 )
 
 export default createStructuredSelector({

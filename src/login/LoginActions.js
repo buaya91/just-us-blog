@@ -3,9 +3,6 @@ export const LOGIN_SUCCEEDED = 'LOGIN_SUCCEEDED'
 export const LOGIN_FAILED = 'LOGIN_FAILED'
 export const LOGOUT = 'LOGOUT'
 
-export const SHOW_LOGIN_POPUP = 'SHOW_LOGIN_POPUP'
-export const CLOSE_LOGIN_POPUP = 'CLOSE_LOGIN_POPUP'
-
 export const loginRequested = (username, password) => ({
   type: LOGIN_REQUESTED,
   payload: {
@@ -29,12 +26,4 @@ export const logout = () => ({
 export const loginFailed = err => ({
   type: LOGIN_FAILED,
   payload: err,
-})
-
-export const showLoginPopUp = () => ({
-  type: SHOW_LOGIN_POPUP,
-})
-
-export const closeLoginPopUp = () => ({
-  type: CLOSE_LOGIN_POPUP,
 })

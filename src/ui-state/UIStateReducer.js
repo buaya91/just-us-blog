@@ -3,6 +3,8 @@ import {
   SHOW_UPDATE_POST_EDITOR,
   HIDE_NEW_POST_EDITOR,
   HIDE_UPDATE_POST_EDITOR,
+  SHOW_LOGIN_POPUP,
+  CLOSE_LOGIN_POPUP,
 } from './UIStateActions'
 import { fromJS } from 'immutable'
 
@@ -23,6 +25,12 @@ export default (state = initialState, action) => {
     }
     case HIDE_UPDATE_POST_EDITOR: {
       return state.delete('showUpdatePopUp')
+    }
+    case SHOW_LOGIN_POPUP: {
+      return state.set('showLoginPopUp', true)
+    }
+    case CLOSE_LOGIN_POPUP: {
+      return state.set('showLoginPopUp', false)
     }
     default: return state
   }

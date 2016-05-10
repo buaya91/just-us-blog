@@ -4,8 +4,6 @@ import {
   LOGIN_FAILED,
   LOGIN_REQUESTED,
   LOGOUT,
-  SHOW_LOGIN_POPUP,
-  CLOSE_LOGIN_POPUP,
 } from './LoginActions'
 
 const initialState = fromJS({})
@@ -29,12 +27,6 @@ export default (state = initialState, action) => {
     }
     case LOGOUT: {
       return initialState
-    }
-    case SHOW_LOGIN_POPUP: {
-      return state.set('showPopUp', true)
-    }
-    case CLOSE_LOGIN_POPUP: {
-      return state.set('showPopUp', false)
     }
     default: return state
   }
