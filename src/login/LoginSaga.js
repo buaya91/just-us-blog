@@ -1,6 +1,7 @@
 import { takeEvery } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
-import { LOGIN_REQUESTED, loginSuccess, loginFailed, closeLoginPopUp } from './LoginActions'
+import { LOGIN_REQUESTED, loginSuccess, loginFailed } from './LoginActions'
+import { closeLoginPopUp } from '../ui-state/UIStateActions'
 import { fetchWithJson } from '../common/sagaHelpers'
 import config from '../config'
 
