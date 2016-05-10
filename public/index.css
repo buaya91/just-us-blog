@@ -112,7 +112,8 @@ body {
   border: solid;
   border-width: 0.2em;
   border-radius: 1em;
-  border-color: #cccccc; }
+  border-color: #cccccc;
+  margin-bottom: 1em; }
   .blogpost .tag-group {
     margin-top: 2em; }
   .blogpost .post-footer {
