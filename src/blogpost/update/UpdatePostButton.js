@@ -17,7 +17,7 @@ export default class UpdatePostButton extends Component {
           updatePostDraft={post => actions.updatePostEditDraft(pid, post)}
           submitChange={post => actions.postUpdateRequested(pid, post)}
         />
-        <button onClick={() => actions.showUpdatePostEditor(pid)}>Update post</button>
+        <button className="edit-button" onClick={() => actions.showUpdatePostEditor(pid)}>Update post</button>
       </div>
     )
   }

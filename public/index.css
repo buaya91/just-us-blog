@@ -1,3 +1,4 @@
+/* color: #ff8d34 */
 body {
   font-size: 100%;
   font-family: "Helvetica Neue", Helvetica, sans-serif; }
@@ -36,7 +37,8 @@ body {
   background-color: darkslategrey;
   display: flex;
   line-height: 2em;
-  flex-direction: row; }
+  flex-direction: row;
+  z-index: 2; }
   #top-bar * {
     margin-right: 0.5em; }
   #top-bar #new-post-button button {
@@ -53,6 +55,12 @@ body {
   #top-bar #top-bar-search {
     margin-top: 0.3em;
     margin-left: auto; }
+  #top-bar #search-button {
+    background-color: transparent; }
+    #top-bar #search-button svg {
+      width: 1.3em;
+      height: 1.3em;
+      fill: white; }
 
 /* nav-bar */
 .nav-bar-container {
@@ -100,9 +108,11 @@ body {
 .blogpost {
   padding-left: 1.5em;
   padding-right: 1.5em;
-  padding-bottom: 2em;
+  padding-bottom: 3em;
   border: solid;
-  border-color: #00d4b4; }
+  border-width: 0.2em;
+  border-radius: 1em;
+  border-color: #cccccc; }
   .blogpost .tag-group {
     margin-top: 2em; }
   .blogpost .post-footer {
@@ -117,9 +127,9 @@ body {
     float: right;
     top: 0.7em;
     right: -0.4em; }
-    .blogpost .update-button button {
+    .blogpost .update-button .edit-button {
       background: url(./edit.svg) no-repeat;
-      text-indent: -100em; }
+      text-indent: -1000em; }
   .blogpost .share-panel {
     display: flex;
     max-width: 10em;
@@ -128,6 +138,8 @@ body {
     float: right;
     bottom: 0.2em;
     right: -0.3em; }
+    .blogpost .share-panel .social-icon {
+      cursor: pointer; }
 
 /* overlay */
 .full-overlay {
@@ -149,7 +161,6 @@ body {
     border-color: white;
     background-color: whitesmoke;
     max-width: 80%;
-    max-height: 80%;
     padding: 0.5em;
     z-index: 5;
     overflow: auto;
@@ -169,7 +180,7 @@ body {
     margin-bottom: 0.3em; }
   #editor .editor-panel textarea {
     width: 100%;
-    height: 90%;
+    height: 80%;
     overflow-y: scroll;
     resize: none; }
 
