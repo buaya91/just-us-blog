@@ -6,12 +6,13 @@ import TopBar from '../../topbar/TopBar'
 
 const filter = (posts, params) => {
   const { pid, tag } = params
+  const result = {}
   if (pid) {
-    return posts[pid]
+    result[pid] = posts[pid] || {}
+    return result
   }
 
   if (tag) {
-    const result = {}
     Object.keys(posts).forEach(k => {
       if (posts[k].tags.includes(tag)) {
         result[k] = posts[k]
