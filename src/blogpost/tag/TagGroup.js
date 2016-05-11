@@ -6,6 +6,7 @@ export default class TagGroup extends Component {
     const { tags, onTagClick } = this.props;
     return (
       <div className="tag-group">
+        Tags:
         {tags.map((t, k) => <Tag key={`tag${k}`} tag={t} onClick={onTagClick} />)}
       </div>
     )

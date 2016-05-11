@@ -138,10 +138,9 @@ body {
   .tag {
     padding: .2em .4em;
     font-size: 0.8em;
-    margin-right: 0.2em;
-    background-color: cornflowerblue;
-    border: none;
-    color: white;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
