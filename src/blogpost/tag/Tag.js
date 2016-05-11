@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router'
 export default class Tag extends Component {
   render() {
     const { onClick, tag } = this.props;
-    return <span onClick={() => onClick(tag)} className="tag">{`#${tag}`}</span>
+    return <span onClick={() => onClick(tag)} className="tag link">{`#${tag}`}</span>
   }
 }
 

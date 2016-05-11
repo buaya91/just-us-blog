@@ -18,8 +18,8 @@ export default class BlogPost extends Component {
         <UpdatePostButton {...this.props} pid={pid} />
         <BlogPostContent {...post} />
         <div className="post-footer">
-          <span>{`Author: ${author}`}</span>
-          <span>{`Post at: ${postAt}`}</span>
+          <span className="author">{`Author: ${author}`}</span>
+          <span className="updated-time">{`Post at: ${postAt}`}</span>
         </div>
         <SharePanel url={`${location.host}/post?pid${pid}`} title="Just Us Blog" />
       </div>

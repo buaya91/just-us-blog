@@ -15,10 +15,10 @@ const initialState = fromJS({
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_NEW_POST_DRAFT: return state.set('new', action.payload)
+    case UPDATE_NEW_POST_DRAFT: return state.set('new', fromJS(action.payload))
     case UPDATE_POST_EDIT_DRAFT: {
       const { pid, draft } = action.payload
-      return state.set(pid, draft)
+      return state.set(pid, fromJS(draft))
     }
     case LOGOUT: {
       return initialState
