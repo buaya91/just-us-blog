@@ -11,7 +11,7 @@ export default class TopBar extends Component {
     return (
       <div id="top-bar">
         <span className="link" onClick={() => browserHistory.push('/')}>Home</span>
-        <span className="link" onClick={() => browserHistory.push('/about-us')}>About Us</span>
+        <span className="link" onClick={() => browserHistory.push('/post')}>Posts</span>
         <NewPostButton {...this.props} showButton={logged} />
       </div>
     )

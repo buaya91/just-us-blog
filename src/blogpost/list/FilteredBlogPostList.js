@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import BlogPostList from './BlogPostList'
 import { blogPostListSelector } from './blogPostListSelectors'
 import TopBar from '../../topbar/TopBar'
+import TagList from '../tag/TagList'
 
 const filter = (posts, params) => {
   const { pid, tag } = params
@@ -27,13 +28,18 @@ const filter = (posts, params) => {
 @connect(blogPostListSelector)
 export default class FilteredBlogPostList extends Component {
   render() {
-    const { posts, location } = this.props
+    const { posts, location, tags } = this.props
     const filtered = filter(posts, location.query)
     return (
       <div>
         <TopBar {...this.props} />
-        <div className="page-content">
-          <BlogPostList {...this.props} posts={filtered} />
+        <div id="side-bar-container" className="page-content">
+          <div id="directory">
+            <TagList tags={tags} />
+          </div>
+          <div id="post-list">
+            {posts && <BlogPostList {...this.props} posts={filtered} />}
+          </div>
         </div>
       </div>
     )
@@ -43,6 +49,7 @@ export default class FilteredBlogPostList extends Component {
 FilteredBlogPostList.propTypes = {
   actions: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
-  posts: PropTypes.object.isRequired,
-  postDrafts: PropTypes.object.isRequired,
+  posts: PropTypes.object,
+  postDrafts: PropTypes.object,
+  tags: PropTypes.array,
 }

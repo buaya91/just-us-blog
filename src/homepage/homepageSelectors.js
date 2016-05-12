@@ -1,7 +1,7 @@
 import { List } from 'immutable'
 import { createSelector, createStructuredSelector } from 'reselect'
 
-const tagsSelector = createSelector(
+export const tagsSelector = createSelector(
   state => state.blogPosts,
   posts => {
     const s = posts.valueSeq()
