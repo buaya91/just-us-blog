@@ -10,13 +10,14 @@ body {
     color: blue;
     text-decoration: underline; }
   body button {
-    color: white;
-    background-color: #0078e7;
-    font-size: 1em;
-    padding: .5em 1em;
-    border: 0 transparent;
-    text-decoration: none;
     display: inline-block;
+    color: white;
+    background-color: blue;
+    padding: .5em 1em;
+    margin-right: 0.5em;
+    border: 0 transparent;
+    border-radius: 0.2em;
+    text-decoration: none;
     zoom: 1;
     line-height: normal;
     white-space: nowrap;
@@ -235,5 +236,9 @@ body {
   left: 1em;
   display: inline-block;
   width: 10em; }
+
+.stream-item {
+  font-family: fantasy;
+  background-color: #EAE3E1; }
 
 /*# sourceMappingURL=index.css.map */
