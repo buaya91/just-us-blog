@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import config from '../../config'
-import BlogPostContent from '../../blogpost/content/BlogPostContent'
-import { parseObj } from './StreamParseUtils'
+import { parsePartialTextToJson } from './StreamParseUtils'
 
 const url = `${config.api}/demo/stream`
 
@@ -18,21 +17,30 @@ export default class StreamDemo extends Component {
     super(props)
     this.state = {
       received: [],
+      partial: '',
     }
+    this.decoder = new TextDecoder()
   }
+
+  streamJSON(read) {
+    const { received, partial } = this.state
+    const parsedResult = parsePartialTextToJson(partial + this.decoder.decode(read.value, { stream: !read.done }))
+    const updated = received.concat(parsedResult[0])
+    this.setState({ received: updated, partial: parsedResult[1] })
+  }
+
+  streamText(read) {
+    const { received } = this.state
+    const newValue = this.decoder.decode(read.value, { stream: !read.done })
+    const updated = received.concat([newValue])
+    this.setState({ received: updated })
+  }
+
   request() {
-    const decoder = new TextDecoder()
     window.fetch(url, { method: 'get' })
       .then(response => {
         const reader = response.body.getReader()
-        let partial = ''
-        streamSideEffects(reader, r => {
-          const { received } = this.state
-          const parsedResult = parseObj(partial + decoder.decode(r.value, { stream: !r.done }))
-          const updated = received.concat(parsedResult[0])
-          partial = parsedResult[1]
-          this.setState({ received: updated })
-        })
+        streamSideEffects(reader, this.streamText)
       })
   }
 
@@ -44,7 +52,7 @@ export default class StreamDemo extends Component {
         <button onClick={() => this.setState({ received: [] })}>Clear</button>
         {received.map(r =>
           <div key={r.pid} className="stream-item">
-            {JSON.stringify(r)}
+            {r}
           </div>)}
       </div>
     )
