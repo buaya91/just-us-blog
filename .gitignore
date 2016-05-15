@@ -7,5 +7,6 @@ typings.json
 public/index.css.map
 public/index.css
 npm-debug.log
+.grunt/
 
 .DS_Store
