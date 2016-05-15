@@ -49,6 +49,39 @@ body {
   #directory {
     padding-left: 2em;
   }
+
+  .post-content {
+    line-height: 1em;
+  }
+
+  .collapse-button {
+    font-size: 0.9em;
+    color: gray;
+    opacity: 0.8;
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+  }
+
+  table {
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+    th {
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #666666;
+      background-color: #dedede;
+    }
+    td {
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #666666;
+      background-color: #ffffff;
+    }
+  }
 }
 
 /* top-bar */
@@ -63,14 +96,11 @@ body {
   flex-direction: row;
   z-index: 2;
 
-  * {
-    margin-right: 0.5em;
-  }
-
   #new-post-button {
-    button {
+    > button {
       padding-left: 0.5em;
       background-color: transparent;
+      font-size: 1em;
       svg {
         width: 1.3em;
         height: 1.3em;
@@ -79,7 +109,8 @@ body {
     }
   }
 
-  span {
+  > span {
+    margin-right: 0.5em;
     color: white;
     font-size: 1.2em;
     padding-left: 1.0em;
@@ -139,25 +170,31 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #b3ccff;
 
     li {
       float: left;
       flex: 1 1 auto;
 
       &.selected {
-        background-color: #4CAF50;
+        background-color: #003cb3;
+        a {
+          color: white;
+          &:hover {
+            background-color: #003cb3;
+          }
+        }
       }
 
       a {
         display: block;
-        color: white;
+        color: #003399;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
         cursor: pointer;
         &:hover {
-          background-color: #111;
+          background-color: #1a75ff;
         }
       }
     }
@@ -237,15 +274,6 @@ body {
 
   span.author, span.updated-time {
     color: #0078e7;
-  }
-
-  .collapse-button {
-    font-size: 0.9em;
-    color: gray;
-    opacity: 0.8;
-    cursor: pointer;
-    text-decoration: underline;
-    text-align: center;
   }
 }
 

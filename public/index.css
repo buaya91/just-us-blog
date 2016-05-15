@@ -32,6 +32,31 @@ body {
     color: red; }
   body #directory {
     padding-left: 2em; }
+  body .post-content {
+    line-height: 1em; }
+  body .collapse-button {
+    font-size: 0.9em;
+    color: gray;
+    opacity: 0.8;
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center; }
+  body table {
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse; }
+    body table th {
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #666666;
+      background-color: #dedede; }
+    body table td {
+      border-width: 1px;
+      padding: 8px;
+      border-style: solid;
+      border-color: #666666;
+      background-color: #ffffff; }
 
 /* top-bar */
 #top-bar {
@@ -44,16 +69,16 @@ body {
   line-height: 2em;
   flex-direction: row;
   z-index: 2; }
-  #top-bar * {
-    margin-right: 0.5em; }
-  #top-bar #new-post-button button {
+  #top-bar #new-post-button > button {
     padding-left: 0.5em;
-    background-color: transparent; }
-    #top-bar #new-post-button button svg {
+    background-color: transparent;
+    font-size: 1em; }
+    #top-bar #new-post-button > button svg {
       width: 1.3em;
       height: 1.3em;
       fill: white; }
-  #top-bar span {
+  #top-bar > span {
+    margin-right: 0.5em;
     color: white;
     font-size: 1.2em;
     padding-left: 1.0em; }
@@ -96,21 +121,25 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333; }
+    background-color: #b3ccff; }
     .nav-bar-container ul.nav-bar li {
       float: left;
       flex: 1 1 auto; }
       .nav-bar-container ul.nav-bar li.selected {
-        background-color: #4CAF50; }
+        background-color: #003cb3; }
+        .nav-bar-container ul.nav-bar li.selected a {
+          color: white; }
+          .nav-bar-container ul.nav-bar li.selected a:hover {
+            background-color: #003cb3; }
       .nav-bar-container ul.nav-bar li a {
         display: block;
-        color: white;
+        color: #003399;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
         cursor: pointer; }
         .nav-bar-container ul.nav-bar li a:hover {
-          background-color: #111; }
+          background-color: #1a75ff; }
 
 /* tags */
 .tag-group {
@@ -167,13 +196,6 @@ body {
       cursor: pointer; }
   .blogpost span.author, .blogpost span.updated-time {
     color: #0078e7; }
-  .blogpost .collapse-button {
-    font-size: 0.9em;
-    color: gray;
-    opacity: 0.8;
-    cursor: pointer;
-    text-decoration: underline;
-    text-align: center; }
 
 /* overlay */
 .full-overlay {

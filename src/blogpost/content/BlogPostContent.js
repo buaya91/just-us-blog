@@ -5,8 +5,9 @@ import marked from 'marked'
 export default class BlogPostContent extends Component {
   constructor(props) {
     super(props)
+    const { showAll } = props
     this.state = {
-      showAll: false,
+      showAll,
     }
   }
 
@@ -18,7 +19,7 @@ export default class BlogPostContent extends Component {
     return (
       <div>
         <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: toShow }}></div>
+        <div className="post-content" dangerouslySetInnerHTML={{ __html: toShow }}></div>
         {!showAll &&
           <div className="collapse-button" onClick={() => this.setState({ showAll: true })}>
             Show more

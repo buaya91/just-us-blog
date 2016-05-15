@@ -58,7 +58,7 @@ export default class PostEditor extends Component {
 
     const previewView =
       (<div className="editor-panel">
-        {postDraft && <BlogPostContent {...postDraft} />}
+        {postDraft && <BlogPostContent {...postDraft} showAll />}
       </div>)
 
     const views = [
