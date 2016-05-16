@@ -164,6 +164,10 @@ body {
   border-bottom: solid;
   border-width: 0.2em;
   border-color: #cccccc; }
+  .blogpost[data-author='Qingwei'] {
+    background-color: #e6f2ff; }
+  .blogpost[data-author='Suhui'] {
+    background-color: #ffe6ff; }
   .blogpost .tag-group {
     margin-top: 2em; }
   .blogpost .post-footer {

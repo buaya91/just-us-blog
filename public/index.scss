@@ -228,6 +228,14 @@ body {
   border-width: 0.2em;
   border-color: #cccccc;
 
+  &[data-author='Qingwei'] {
+    background-color: #e6f2ff;
+  }
+
+  &[data-author='Suhui'] {
+    background-color: #ffe6ff;
+  }
+
   .tag-group {
     margin-top: 2em;
   }

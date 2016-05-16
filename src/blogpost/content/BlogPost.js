@@ -14,7 +14,7 @@ export default class BlogPost extends Component {
     const { author, postAt } = post;
 
     return (
-      <div className="blogpost">
+      <div className="blogpost" data-author={author}>
         <UpdatePostButton {...this.props} pid={pid} />
         <BlogPostContent {...post} />
         <div className="post-footer">
