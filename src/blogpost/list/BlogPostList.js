@@ -5,7 +5,7 @@ export default class BlogPostList extends Component {
   render() {
     const { actions, posts, postDrafts } = this.props
     return (
-      <div>
+      <div className="reversed-list">
         {
           Object.keys(posts).map(pid =>
             <BlogPost

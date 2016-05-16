@@ -82,6 +82,11 @@ body {
       background-color: #ffffff;
     }
   }
+
+  .reversed-list {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 
 /* top-bar */
