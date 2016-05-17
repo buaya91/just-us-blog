@@ -3,6 +3,8 @@ import BlogPostContent from './BlogPostContent'
 import UpdatePostButton from '../update/UpdatePostButton'
 import SharePanel from './../share/SharePanel'
 
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card'
+
 export default class BlogPost extends Component {
   componentWillMount() {
     const { actions, post, pid } = this.props
@@ -11,18 +13,25 @@ export default class BlogPost extends Component {
 
   render() {
     const { post, pid } = this.props
-    const { author, postAt } = post;
+    const { title, author, postAt } = post;
+    const subtitle = (
+      <span>
+        <div>Post at: {postAt}</div>
+        <div>Author: {author}</div>
+      </span>
+    )
 
     return (
-      <div className="blogpost" data-author={author}>
+      <Card>
+        <CardTitle title={title} subtitle={subtitle} />
         <UpdatePostButton {...this.props} pid={pid} />
-        <BlogPostContent {...post} />
-        <div className="post-footer">
-          <span className="author">{`Author: ${author}`}</span>
-          <span className="updated-time">{`Post at: ${postAt}`}</span>
-        </div>
-        <SharePanel url={`${location.host}/post?pid${pid}`} title="Just Us Blog" />
-      </div>
+        <CardText>
+          <BlogPostContent {...post} />
+        </CardText>
+        <CardActions>
+          <SharePanel url={`${location.host}/post?pid${pid}`} title="Just Us Blog" />
+        </CardActions>
+      </Card>
     )
   }
 }
