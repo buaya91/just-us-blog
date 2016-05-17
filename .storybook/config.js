@@ -8,7 +8,6 @@ function loadStories() {
   require('./DirectoryStories')
   require('./HomepageStories')
   require('./LoginStories')
-  require('./TopBarStories')
 }
 
 configure(loadStories, module);

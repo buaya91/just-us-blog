@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import BlogPostList from './BlogPostList'
 import { blogPostListSelector } from './blogPostListSelectors'
-import TopBar from '../../topbar/TopBar'
 import TagList from '../tag/TagList'
 
 const filter = (posts, params) => {
@@ -32,7 +31,6 @@ export default class FilteredBlogPostList extends Component {
     const filtered = filter(posts, location.query)
     return (
       <div>
-        <TopBar {...this.props} />
         <div id="side-bar-container" className="page-content">
           <div id="directory">
             <TagList tags={tags} />
