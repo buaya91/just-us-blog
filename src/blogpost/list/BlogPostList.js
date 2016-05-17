@@ -3,12 +3,17 @@ import BlogPost from '../content/BlogPost'
 
 import { List, ListItem } from 'material-ui/List'
 
+const style = {
+  display: 'flex',
+  flexDirection: 'column-reverse',
+}
+
 export default class BlogPostList extends Component {
   render() {
     const { actions, posts, postDrafts } = this.props
     return (
       <div>
-        <List>
+        <List style={style}>
           {Object.keys(posts).map(pid => {
             const { title, author, content } = posts[pid]
             return (

@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 import BlogPostList from './BlogPostList'
 import { blogPostListSelector } from './blogPostListSelectors'
-import TagList from '../tag/TagList'
+import Tag from '../tag/Tag'
 
 import Paper from 'material-ui/Paper'
 import Menu from 'material-ui/Menu'
@@ -30,6 +31,12 @@ const filter = (posts, params) => {
 
 const style = {
   display: 'flex',
+  paper1: {
+    flex: '0 1 auto',
+  },
+  paper2: {
+    flex: '5 1 auto',
+  },
 }
 
 @connect(blogPostListSelector)
@@ -39,12 +46,20 @@ export default class FilteredBlogPostList extends Component {
     const filtered = filter(posts, location.query)
     return (
       <div style={style}>
-        <Paper>
+        <Paper style={style.paper1}>
           <Menu>
-            {tags.map(tg => <MenuItem primaryText={tg} />)}
+            <MenuItem onClick={() => browserHistory.push('/post')}>
+              <Tag tag="All" />
+            </MenuItem>
+            {tags.map(tg => (
+                <MenuItem onClick={() => browserHistory.push(`/post?tag=${tg}`)}>
+                  <Tag tag={tg} />
+                </MenuItem>
+              )
+            )}
           </Menu>
         </Paper>
-        <Paper>
+        <Paper style={style.paper2}>
           {posts && <BlogPostList {...this.props} posts={filtered} />}
         </Paper>
       </div>
