@@ -52,7 +52,7 @@ export default class FilteredBlogPostList extends Component {
               <Tag tag="All" />
             </MenuItem>
             {tags.map(tg => (
-                <MenuItem onClick={() => browserHistory.push(`/post?tag=${tg}`)}>
+                <MenuItem key={tg} onClick={() => browserHistory.push(`/post?tag=${tg}`)}>
                   <Tag tag={tg} />
                 </MenuItem>
               )

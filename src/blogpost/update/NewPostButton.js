@@ -3,6 +3,15 @@ import { connect } from 'react-redux'
 import PostEditorPopUp from '../editor/PostEditorPopUp'
 import { newPostButtonSelector } from './updateSelectors'
 
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import ContentAdd from 'material-ui/svg-icons/content/add'
+
+const style = {
+  position: 'fixed',
+  right: '2em',
+  bottom: '2em',
+}
+
 @connect(newPostButtonSelector)
 export default class NewPostButton extends Component {
   render() {
@@ -17,11 +26,9 @@ export default class NewPostButton extends Component {
           updatePostDraft={actions.updateNewPostDraft}
           submitChange={actions.createPostRequested}
         />
-        <button {...this.props} onClick={actions.showNewPostEditor}>
-          <svg viewBox="0 0 32 32">
-            <path className="plus-button" d="M28,14H18V4c0-1.104-0.896-2-2-2s-2,0.896-2,2v10H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h10v10c0,1.104,0.896,2,2,2  s2-0.896,2-2V18h10c1.104,0,2-0.896,2-2S29.104,14,28,14z" />
-          </svg>
-        </button>
+        <FloatingActionButton style={style} onClick={actions.showNewPostEditor}>
+          <ContentAdd />
+        </FloatingActionButton>
       </div>
     )
   }

@@ -2,12 +2,13 @@ import React, { Component, PropTypes } from 'react'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { updatePostButtonSelector } from './blogpost/update/updateSelectors'
-import PostEditorPopUp from './blogpost/editor/PostEditorPopUp'
 import { Tabs, Tab } from 'material-ui/Tabs';
 
 import Homepage from './homepage/HomepageContainer'
+import NewPostButton from './blogpost/update/NewPostButton'
 import BlogPostList from './blogpost/list/FilteredBlogPostList'
 import LoginPopUp from './login/LoginPopUp'
+import PostEditorPopUp from './blogpost/editor/PostEditorPopUp'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin()
@@ -35,6 +36,7 @@ export default class AppContent extends Component {
             <BlogPostList actions={actions} location={location} />
           </Tab>
         </Tabs>
+        <NewPostButton actions={actions} />
       </div>
     )
   }
