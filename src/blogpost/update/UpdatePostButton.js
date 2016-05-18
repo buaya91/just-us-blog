@@ -8,8 +8,9 @@ import RaisedButton from 'material-ui/RaisedButton'
 const style = {
   position: 'relative',
   float: 'right',
-  top: '-5.2em',
+  top: '1.2em',
   right: '1.2em',
+  zIndex: 2,
 }
 
 @connect(updatePostButtonSelector)
@@ -19,13 +20,6 @@ export default class UpdatePostButton extends Component {
     if (!showButton) return null
     return (
       <div style={style}>
-        <PostEditorPopUp
-          show={idToShow === pid}
-          closePopUp={() => actions.hideUpdatePostEditor(pid)}
-          postDraft={postDraft}
-          updatePostDraft={post => actions.updatePostEditDraft(pid, post)}
-          submitChange={post => actions.postUpdateRequested(pid, post)}
-        />
         <RaisedButton
           icon={<i className="material-icons">edit</i>}
           onClick={() => actions.showUpdatePostEditor(pid)}

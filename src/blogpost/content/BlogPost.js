@@ -3,7 +3,8 @@ import BlogPostContent from './BlogPostContent'
 import UpdatePostButton from '../update/UpdatePostButton'
 import SharePanel from './../share/SharePanel'
 
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card'
+import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card'
+
 
 export default class BlogPost extends Component {
   componentWillMount() {
@@ -22,16 +23,18 @@ export default class BlogPost extends Component {
     )
 
     return (
-      <Card>
-        <CardTitle title={title} subtitle={subtitle} />
+      <div>
         <UpdatePostButton {...this.props} pid={pid} />
-        <CardText>
-          <BlogPostContent {...post} />
-        </CardText>
-        <CardActions>
-          <SharePanel url={`${location.host}/post?pid${pid}`} title="Just Us Blog" />
-        </CardActions>
-      </Card>
+        <Card>
+          <CardTitle title={title} subtitle={subtitle} />
+          <CardText>
+            <BlogPostContent {...post} />
+          </CardText>
+          <CardActions>
+            <SharePanel url={`${location.host}/post?pid${pid}`} title="Just Us Blog" />
+          </CardActions>
+        </Card>
+      </div>
     )
   }
 }
