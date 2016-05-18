@@ -32,8 +32,7 @@ const filter = (posts, params) => {
 const style = {
   display: 'flex',
   paper1: {
-    display: 'flex',
-    flex: '0 0 auto',
+    flex: '0 0 200px',
   },
   paper2: {
     flex: '5 2 auto',
@@ -48,7 +47,7 @@ export default class FilteredBlogPostList extends Component {
     return (
       <div style={style}>
         <Paper style={style.paper1}>
-          <Menu style={style.paper1}>
+          <Menu>
             <MenuItem onClick={() => browserHistory.push('/post')}>
               <Tag tag="All" />
             </MenuItem>
