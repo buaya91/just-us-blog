@@ -32,10 +32,10 @@ const filter = (posts, params) => {
 const style = {
   display: 'flex',
   paper1: {
-    flex: '0 1 auto',
+    flex: '0 0 auto',
   },
   paper2: {
-    flex: '5 1 auto',
+    flex: '5 2 auto',
   },
 }
 
