@@ -14,11 +14,16 @@ const FacebookIcon = generateShareIcon('facebook')
 const TwitterIcon = generateShareIcon('twitter')
 const LinkedinIcon = generateShareIcon('linkedin')
 
+const style = {
+  display: 'flex',
+  flexDirection: 'row',
+}
+
 export default class SharePanel extends Component {
   render() {
     const { url, title } = this.props
     return (
-      <div className="share-panel">
+      <div style={style}>
         <FacebookShareButton url={url} title={title}>
           <FacebookIcon size={32} round />
         </FacebookShareButton>

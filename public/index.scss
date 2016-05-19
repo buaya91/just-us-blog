@@ -2,7 +2,7 @@
 
 body {
   font-size: 100%;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   input, textarea {
     font-size: 1em;
   }
@@ -12,33 +12,6 @@ body {
     padding-bottom: 2px;
     color: blue;
     text-decoration: underline;
-  }
-
-  button {
-    display: inline-block;
-    color: white;
-    background-color: blue;
-
-    padding: .5em 1em;
-    margin-right: 0.5em;
-
-    border: 0 rgba(0,0,0,0);
-    border-radius: 0.2em;
-
-    text-decoration: none;
-    zoom: 1;
-
-    line-height: normal;
-    white-space: nowrap;
-    vertical-align: middle;
-    text-align: center;
-
-    cursor: pointer;
-    box-sizing: border-box;
-
-    &:visited {
-      color: #265778;
-    }
   }
 
   .err-msg {

@@ -1,10 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { browserHistory } from 'react-router'
 
+import FlatButton from 'material-ui/FlatButton'
+
+const style = {
+  textAlign: 'left',
+}
+
 export default class Tag extends Component {
   render() {
     const { onClick, tag } = this.props;
-    return <span onClick={() => onClick(tag)} className="tag link">{`#${tag}`}</span>
+    return <FlatButton style={style} onClick={() => onClick(tag)} label={`#${tag}`} />
   }
 }
 

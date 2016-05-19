@@ -1,4 +1,4 @@
-import { createStructuredSelector } from 'reselect'
+import { createStructuredSelector, createSelector } from 'reselect'
 
 export const newPostButtonSelector = createStructuredSelector({
   postDraft: state => state.postDrafts.get('new').toJS(),
@@ -6,7 +6,18 @@ export const newPostButtonSelector = createStructuredSelector({
   showButton: state => state.login.get('session'),
 })
 
+const idToShow = createSelector(
+  state => state.uiState,
+  uiState => uiState.get('showUpdatePopUp'),
+)
+
+const postDraftForUpdate = createSelector(
+  [idToShow, state => state.postDrafts],
+  (id, postDrafts) => postDrafts.get(id),
+)
+
 export const updatePostButtonSelector = createStructuredSelector({
-  idToShow: state => state.uiState.get('showUpdatePopUp'),
+  idToShow,
   showButton: state => state.login.get('session'),
+  postDraft: postDraftForUpdate,
 })

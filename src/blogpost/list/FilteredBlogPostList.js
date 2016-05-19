@@ -1,9 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 import BlogPostList from './BlogPostList'
 import { blogPostListSelector } from './blogPostListSelectors'
-import TopBar from '../../topbar/TopBar'
-import TagList from '../tag/TagList'
+import Tag from '../tag/Tag'
+
+import Paper from 'material-ui/Paper'
+import Menu from 'material-ui/Menu'
+import MenuItem from 'material-ui/MenuItem'
 
 const filter = (posts, params) => {
   const { pid, tag } = params
@@ -25,22 +29,39 @@ const filter = (posts, params) => {
   return posts
 }
 
+const style = {
+  display: 'flex',
+  paper1: {
+    flex: '0 0 200px',
+  },
+  paper2: {
+    flex: '5 2 auto',
+  },
+}
+
 @connect(blogPostListSelector)
 export default class FilteredBlogPostList extends Component {
   render() {
     const { posts, location, tags } = this.props
     const filtered = filter(posts, location.query)
     return (
-      <div>
-        <TopBar {...this.props} />
-        <div id="side-bar-container" className="page-content">
-          <div id="directory">
-            <TagList tags={tags} />
-          </div>
-          <div id="post-list">
-            {posts && <BlogPostList {...this.props} posts={filtered} />}
-          </div>
-        </div>
+      <div style={style}>
+        <Paper style={style.paper1}>
+          <Menu disableAutoFocus>
+            <MenuItem onClick={() => browserHistory.push('/post')}>
+              <Tag tag="All" />
+            </MenuItem>
+            {tags.map(tg => (
+                <MenuItem key={tg} onClick={() => browserHistory.push(`/post?tag=${tg}`)}>
+                  <Tag tag={tg} />
+                </MenuItem>
+              )
+            )}
+          </Menu>
+        </Paper>
+        <Paper style={style.paper2}>
+          {posts && <BlogPostList {...this.props} posts={filtered} />}
+        </Paper>
       </div>
     )
   }

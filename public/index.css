@@ -1,7 +1,7 @@
 /* color: #ff8d34 */
 body {
   font-size: 100%;
-  font-family: "Helvetica Neue", Helvetica, sans-serif; }
+  font-family: "Roboto", sans-serif; }
   body input, body textarea {
     font-size: 1em; }
   body .link {
@@ -9,24 +9,6 @@ body {
     padding-bottom: 2px;
     color: blue;
     text-decoration: underline; }
-  body button {
-    display: inline-block;
-    color: white;
-    background-color: blue;
-    padding: .5em 1em;
-    margin-right: 0.5em;
-    border: 0 transparent;
-    border-radius: 0.2em;
-    text-decoration: none;
-    zoom: 1;
-    line-height: normal;
-    white-space: nowrap;
-    vertical-align: middle;
-    text-align: center;
-    cursor: pointer;
-    box-sizing: border-box; }
-    body button:visited {
-      color: #265778; }
   body .err-msg {
     font-size: 0.8em;
     color: red; }

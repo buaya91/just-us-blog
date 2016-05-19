@@ -1,22 +1,38 @@
 import React, { Component, PropTypes } from 'react'
 import BlogPost from '../content/BlogPost'
 
+import { List, ListItem } from 'material-ui/List'
+
+const style = {
+  display: 'flex',
+  flexDirection: 'column-reverse',
+}
+
 export default class BlogPostList extends Component {
   render() {
     const { actions, posts, postDrafts } = this.props
     return (
-      <div className="reversed-list">
-        {
-          Object.keys(posts).map(pid =>
-            <BlogPost
-              key={pid}
-              actions={actions}
-              pid={pid}
-              post={posts[pid]}
-              postDraft={postDrafts[pid]}
-            />
-          )
-        }
+      <div>
+        <List style={style}>
+          {Object.keys(posts).map(pid => {
+            const { title, author, content } = posts[pid]
+            return (
+              <ListItem
+                key={pid}
+                title={title}
+                subtitle={<span>by <b>{author}</b></span>}
+              >
+                <BlogPost
+                  key={pid}
+                  actions={actions}
+                  pid={pid}
+                  post={posts[pid]}
+                  postDraft={postDrafts[pid]}
+                />
+              </ListItem>
+            )}
+          )}
+        </List>
       </div>
     )
   }
