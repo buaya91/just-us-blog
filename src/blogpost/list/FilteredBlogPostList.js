@@ -47,7 +47,7 @@ export default class FilteredBlogPostList extends Component {
     return (
       <div style={style}>
         <Paper style={style.paper1}>
-          <Menu>
+          <Menu disableAutoFocus>
             <MenuItem onClick={() => browserHistory.push('/post')}>
               <Tag tag="All" />
             </MenuItem>
