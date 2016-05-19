@@ -22,7 +22,7 @@ export function* fetchAllPost() {
     const responseJson = yield fetchAttempt.json()
     yield put(addPosts(responseJson))
   } catch (err) {
-    console.log(`Fetch post failed: ${err}`)
+    alert(`Fetch post failed: ${err}`)
   }
 }
 
@@ -46,7 +46,7 @@ export function* updatePost(action) {
       yield put(postUpdateFailed(pid, error))
     }
   } catch (err) {
-
+    alert(`Update failed: ${err}`)
   }
 }
 
@@ -69,7 +69,7 @@ export function* createPost(action) {
       yield put(postCreateSuccess(pid, createdPost))
     }
   } catch (err) {
-    console.log(`Create attempt failed: ${err}`)
+    alert(`Create attempt failed: ${err}`)
   }
 }
 

@@ -31,7 +31,7 @@ function* login(action) {
       yield put(closeLoginPopUp())
     }
   } catch (err) {
-    console.log(err)
+    alert(`Login failed: ${err}`)
   }
 }
 
