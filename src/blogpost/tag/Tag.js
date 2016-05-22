@@ -10,7 +10,7 @@ const style = {
 export default class Tag extends Component {
   render() {
     const { onClick, tag } = this.props;
-    return <FlatButton style={style} onClick={() => onClick(tag)} label={`#${tag}`} />
+    return <FlatButton style={style} onClick={() => onClick(tag)} label={`#${tag}`} secondary />
   }
 }
 

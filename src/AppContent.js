@@ -9,9 +9,13 @@ import NewPostButton from './blogpost/update/NewPostButton'
 import BlogPostList from './blogpost/list/FilteredBlogPostList'
 import LoginPopUp from './login/LoginPopUp'
 import PostEditorPopUp from './blogpost/editor/PostEditorPopUp'
+import SwipeableViews from 'react-swipeable-views'
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin()
+const pathToIndexMapper = {
+  '/login': 0,
+  '/': 0,
+  '/post': 1,
+}
 
 @connect(updatePostButtonSelector)
 export default class AppContent extends Component {
@@ -29,13 +33,15 @@ export default class AppContent extends Component {
           submitChange={post => actions.postUpdateRequested(idToShow, post)}
         />
         <Tabs value={pathname === '/login' ? '/' : pathname}>
-          <Tab label="Home" value="/" onActive={() => browserHistory.push('/')} >
-            <Homepage actions={actions} />
-          </Tab>
-          <Tab label="Posts" value="/post" onActive={() => browserHistory.push('/post')} >
-            <BlogPostList actions={actions} location={location} />
-          </Tab>
+          <Tab label="Home" value="/" onActive={() => browserHistory.push('/')} />
+          <Tab label="Writing" value="/post" onActive={() => browserHistory.push('/post')} />
         </Tabs>
+        <SwipeableViews
+          index={pathToIndexMapper[pathname]}
+        >
+          <Homepage actions={actions} />
+          <BlogPostList actions={actions} location={location} />
+        </SwipeableViews>
         <NewPostButton actions={actions} />
       </div>
     )

@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import PostEditorPopUp from '../editor/PostEditorPopUp'
 import { connect } from 'react-redux'
 import { updatePostButtonSelector } from './updateSelectors'
 
