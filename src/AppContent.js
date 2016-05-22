@@ -17,6 +17,12 @@ const pathToIndexMapper = {
   '/post': 1,
 }
 
+const style = {
+  inkBar: {
+    height: '.3rem',
+  },
+}
+
 @connect(updatePostButtonSelector)
 export default class AppContent extends Component {
   render() {
@@ -32,12 +38,13 @@ export default class AppContent extends Component {
           updatePostDraft={post => actions.updatePostEditDraft(idToShow, post)}
           submitChange={post => actions.postUpdateRequested(idToShow, post)}
         />
-        <Tabs value={pathname === '/login' ? '/' : pathname}>
+        <Tabs value={pathname === '/login' ? '/' : pathname} inkBarStyle={style.inkBar} >
           <Tab label="Home" value="/" onActive={() => browserHistory.push('/')} />
           <Tab label="Writing" value="/post" onActive={() => browserHistory.push('/post')} />
         </Tabs>
         <SwipeableViews
           index={pathToIndexMapper[pathname]}
+          resistance
         >
           <Homepage actions={actions} />
           <BlogPostList actions={actions} location={location} />
