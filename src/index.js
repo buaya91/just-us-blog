@@ -17,12 +17,12 @@ injectTapEventPlugin()
 export const theme = getMuiTheme({
   palette: {
     primary1Color: colors.orange500,
-    primary2Color: colors.purple500,
-    primary3Color: colors.green500,
+    primary2Color: colors.orange700,
+    primary3Color: colors.orange300,
     accent1Color: colors.pink500,
-    accent2Color: colors.pinkA400,
-    accent3Color: colors.pinkA100,
-    // textColor: colors.fullWhite,
+    accent2Color: colors.pink700,
+    accent3Color: colors.pink300,
+    textColor: colors.blueGrey900,
     // alternateTextColor: colors.fullWhite,
   },
 })

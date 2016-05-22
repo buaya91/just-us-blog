@@ -10,8 +10,8 @@ const style = {
     fontSize: '3rem',
     fontWeight: 'bold',
     lineHeight: '3.5rem',
-    color: colors.pink500,
   },
+  backgroundColor: colors.purple50,
 }
 
 export default class BlogPost extends Component {
@@ -31,7 +31,7 @@ export default class BlogPost extends Component {
     )
 
     return (
-      <div>
+      <div style={style}>
         <UpdatePostButton {...this.props} pid={pid} />
         <Card>
           <CardTitle
