@@ -5,12 +5,24 @@ import FlatButton from 'material-ui/FlatButton'
 
 const style = {
   textAlign: 'left',
+  label: {
+    paddingLeft: '0.3rem',
+  },
 }
 
 export default class Tag extends Component {
   render() {
     const { onClick, tag } = this.props;
-    return <FlatButton style={style} onClick={() => onClick(tag)} label={`#${tag}`} secondary />
+    return (
+      <FlatButton
+        style={style}
+        labelStyle={style.label}
+        onClick={() => onClick(tag)}
+        label={tag}
+        icon={<i className="material-icons">label</i>}
+        secondary
+      />
+    )
   }
 }
 

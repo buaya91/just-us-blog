@@ -15,7 +15,6 @@ import PostEditorPopUp from './blogpost/editor/PostEditorPopUp'
 const pathToIndexMapper = {
   '/': 0,
   '/login': 0,
-  '/post': 0,
   '/project': 1,
 }
 
