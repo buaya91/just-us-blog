@@ -1,7 +1,7 @@
 /* color: #ff8d34 */
 body {
   font-size: 100%;
-  font-family: "Helvetica Neue", Helvetica, sans-serif; }
+  font-family: "Comic Sans MS", sans-serif; }
   body input, body textarea {
     font-size: 1em; }
   body .link {
@@ -9,24 +9,6 @@ body {
     padding-bottom: 2px;
     color: blue;
     text-decoration: underline; }
-  body button {
-    display: inline-block;
-    color: white;
-    background-color: blue;
-    padding: .5em 1em;
-    margin-right: 0.5em;
-    border: 0 transparent;
-    border-radius: 0.2em;
-    text-decoration: none;
-    zoom: 1;
-    line-height: normal;
-    white-space: nowrap;
-    vertical-align: middle;
-    text-align: center;
-    cursor: pointer;
-    box-sizing: border-box; }
-    body button:visited {
-      color: #265778; }
   body .err-msg {
     font-size: 0.8em;
     color: red; }
@@ -57,6 +39,9 @@ body {
       border-style: solid;
       border-color: #666666;
       background-color: #ffffff; }
+  body .reversed-list {
+    display: flex;
+    flex-direction: column-reverse; }
 
 /* top-bar */
 #top-bar {
@@ -164,6 +149,10 @@ body {
   border-bottom: solid;
   border-width: 0.2em;
   border-color: #cccccc; }
+  .blogpost[data-author='Qingwei'] {
+    background-color: #e6f2ff; }
+  .blogpost[data-author='Suhui'] {
+    background-color: #ffe6ff; }
   .blogpost .tag-group {
     margin-top: 2em; }
   .blogpost .post-footer {

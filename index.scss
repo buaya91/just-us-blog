@@ -2,7 +2,7 @@
 
 body {
   font-size: 100%;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Comic Sans MS", sans-serif;
   input, textarea {
     font-size: 1em;
   }
@@ -12,33 +12,6 @@ body {
     padding-bottom: 2px;
     color: blue;
     text-decoration: underline;
-  }
-
-  button {
-    display: inline-block;
-    color: white;
-    background-color: blue;
-
-    padding: .5em 1em;
-    margin-right: 0.5em;
-
-    border: 0 rgba(0,0,0,0);
-    border-radius: 0.2em;
-
-    text-decoration: none;
-    zoom: 1;
-
-    line-height: normal;
-    white-space: nowrap;
-    vertical-align: middle;
-    text-align: center;
-
-    cursor: pointer;
-    box-sizing: border-box;
-
-    &:visited {
-      color: #265778;
-    }
   }
 
   .err-msg {
@@ -81,6 +54,11 @@ body {
       border-color: #666666;
       background-color: #ffffff;
     }
+  }
+
+  .reversed-list {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
@@ -227,6 +205,14 @@ body {
   border-bottom: solid;
   border-width: 0.2em;
   border-color: #cccccc;
+
+  &[data-author='Qingwei'] {
+    background-color: #e6f2ff;
+  }
+
+  &[data-author='Suhui'] {
+    background-color: #ffe6ff;
+  }
 
   .tag-group {
     margin-top: 2em;
