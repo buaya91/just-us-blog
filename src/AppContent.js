@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import { updatePostButtonSelector } from './blogpost/update/updateSelectors'
 import { Tabs, Tab } from 'material-ui/Tabs';
 
+import SideBar from 'react-sidebar'
+import SideMenu from './side-menu/SideMenu'
+
 import Homepage from './homepage/HomepageContainer'
 import NewPostButton from './blogpost/update/NewPostButton'
 import BlogPostList from './blogpost/list/FilteredBlogPostList'
@@ -20,6 +23,11 @@ const pathToIndexMapper = {
 const style = {
   inkBar: {
     height: '.3rem',
+  },
+  reactSideBar: {
+    sidebar: {
+      width: '15%',
+    },
   },
 }
 
@@ -38,17 +46,19 @@ export default class AppContent extends Component {
           updatePostDraft={post => actions.updatePostEditDraft(idToShow, post)}
           submitChange={post => actions.postUpdateRequested(idToShow, post)}
         />
-        <Tabs value={pathname === '/login' ? '/' : pathname} inkBarStyle={style.inkBar} >
-          <Tab label="Home" value="/" onActive={() => browserHistory.push('/')} />
-          <Tab label="Writing" value="/post" onActive={() => browserHistory.push('/post')} />
-        </Tabs>
-        <SwipeableViews
-          index={pathToIndexMapper[pathname]}
-          resistance
-        >
-          <Homepage actions={actions} />
-          <BlogPostList actions={actions} location={location} />
-        </SwipeableViews>
+        <SideBar sidebar={<SideMenu />} docked styles={style.reactSideBar}>
+          <Tabs value={pathname === '/login' ? '/' : pathname} inkBarStyle={style.inkBar} >
+            <Tab label="Home" value="/" onActive={() => browserHistory.push('/')} />
+            <Tab label="Writing" value="/post" onActive={() => browserHistory.push('/post')} />
+          </Tabs>
+          <SwipeableViews
+            index={pathToIndexMapper[pathname]}
+            resistance
+          >
+            <Homepage actions={actions} />
+            <BlogPostList actions={actions} location={location} />
+          </SwipeableViews>
+        </SideBar>
         <NewPostButton actions={actions} />
       </div>
     )

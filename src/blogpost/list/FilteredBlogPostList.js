@@ -6,6 +6,7 @@ import { blogPostListSelector } from './blogPostListSelectors'
 import Tag from '../tag/Tag'
 
 import Paper from 'material-ui/Paper'
+import Drawer from 'material-ui/Drawer'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
 
@@ -46,19 +47,6 @@ export default class FilteredBlogPostList extends Component {
     const filtered = filter(posts, location.query)
     return (
       <div style={style}>
-        <Paper style={style.paper1}>
-          <Menu disableAutoFocus>
-            <MenuItem onClick={() => browserHistory.push('/post')}>
-              <Tag tag="All" />
-            </MenuItem>
-            {tags.map(tg => (
-                <MenuItem key={tg} onClick={() => browserHistory.push(`/post?tag=${tg}`)}>
-                  <Tag tag={tg} />
-                </MenuItem>
-              )
-            )}
-          </Menu>
-        </Paper>
         <Paper style={style.paper2}>
           {posts && <BlogPostList {...this.props} posts={filtered} />}
         </Paper>
