@@ -13,6 +13,7 @@ export default class SideMenu extends Component {
     const { tags } = this.props
     return (
       <Menu>
+        <MenuItem>Tags</MenuItem>
         <MenuItem onClick={() => browserHistory.push('/post')}>
           <Tag tag="All" />
         </MenuItem>

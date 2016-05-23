@@ -6,7 +6,6 @@ import App from '../AppContent'
 
 export default [
   { path: '/', component: App },
-  { path: '/login', component: App },
-  { path: '/post', component: App },
   { path: '/demo/stream', component: StreamDemo },
+  { path: '*', component: App },
 ]

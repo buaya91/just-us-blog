@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import BlogPostContent from './BlogPostContent'
 import UpdatePostButton from '../update/UpdatePostButton'
 import SharePanel from './../share/SharePanel'
-import * as colors from 'material-ui/styles/colors'
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card'
 
 const style = {
@@ -11,7 +10,11 @@ const style = {
     fontWeight: 'bold',
     lineHeight: '3.5rem',
   },
-  backgroundColor: colors.purple50,
+  content: {
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    paddingBottom: '1rem',
+  },
 }
 
 export default class BlogPost extends Component {
@@ -31,9 +34,9 @@ export default class BlogPost extends Component {
     )
 
     return (
-      <div style={style}>
+      <div>
         <UpdatePostButton {...this.props} pid={pid} />
-        <Card>
+        <Card style={style.content}>
           <CardTitle
             title={title}
             subtitle={subtitle}

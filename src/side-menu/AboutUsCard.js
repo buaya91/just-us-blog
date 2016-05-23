@@ -9,7 +9,7 @@ export default class AboutUsCard extends Component {
         <CardMedia
           overlay={<CardTitle title="Qingwei & Suhui" subtitle="Just Us being Us" />}
         >
-          <img src="http://lorempixel.com/600/337/nature/" />
+          <img src={config.img.sunrise} />
         </CardMedia>
         <CardTitle title="About Us" />
         <CardText>

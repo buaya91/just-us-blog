@@ -3,31 +3,33 @@ import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { updatePostButtonSelector } from './blogpost/update/updateSelectors'
 import { Tabs, Tab } from 'material-ui/Tabs';
+import SwipeableViews from 'react-swipeable-views'
+import Drawer from 'material-ui/Drawer'
 
-import SideBar from 'react-sidebar'
 import SideMenu from './side-menu/SideMenu'
-
-import Homepage from './homepage/HomepageContainer'
 import NewPostButton from './blogpost/update/NewPostButton'
 import BlogPostList from './blogpost/list/FilteredBlogPostList'
 import LoginPopUp from './login/LoginPopUp'
 import PostEditorPopUp from './blogpost/editor/PostEditorPopUp'
-import SwipeableViews from 'react-swipeable-views'
 
 const pathToIndexMapper = {
-  '/login': 0,
   '/': 0,
-  '/post': 1,
+  '/login': 0,
+  '/post': 0,
+  '/project': 1,
 }
 
 const style = {
+  drawer: {
+    width: '25vw',
+  },
+  mainContent: {
+    width: '75vw',
+    position: 'relative',
+    left: '25vw',
+  },
   inkBar: {
     height: '.3rem',
-  },
-  reactSideBar: {
-    sidebar: {
-      width: '15%',
-    },
   },
 }
 
@@ -46,19 +48,21 @@ export default class AppContent extends Component {
           updatePostDraft={post => actions.updatePostEditDraft(idToShow, post)}
           submitChange={post => actions.postUpdateRequested(idToShow, post)}
         />
-        <SideBar sidebar={<SideMenu />} docked styles={style.reactSideBar}>
-          <Tabs value={pathname === '/login' ? '/' : pathname} inkBarStyle={style.inkBar} >
-            <Tab label="Home" value="/" onActive={() => browserHistory.push('/')} />
-            <Tab label="Writing" value="/post" onActive={() => browserHistory.push('/post')} />
-          </Tabs>
-          <SwipeableViews
-            index={pathToIndexMapper[pathname]}
-            resistance
-          >
-            <Homepage actions={actions} />
-            <BlogPostList actions={actions} location={location} />
-          </SwipeableViews>
-        </SideBar>
+        <Drawer containerStyle={style.drawer}>
+          <SideMenu />
+        </Drawer>
+        <Tabs value={pathname === '/login' ? '/' : pathname} inkBarStyle={style.inkBar} style={style.mainContent} >
+          <Tab label="Writing" value="/" onActive={() => browserHistory.push('/')} />
+          <Tab label="Projects" value="/project" onActive={() => browserHistory.push('/project')} />
+        </Tabs>
+        <SwipeableViews
+          index={pathToIndexMapper[pathname]}
+          resistance
+          style={style.mainContent}
+        >
+          <BlogPostList actions={actions} location={location} />
+          <div style={{ textAlign: 'center' }}>Under Construction ...</div>
+        </SwipeableViews>
         <NewPostButton actions={actions} />
       </div>
     )

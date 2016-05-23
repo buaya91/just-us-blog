@@ -16,8 +16,13 @@ const showLoginPopUpSelector = createSelector(
   uiState => uiState.get('showLoginPopUp')
 )
 
+const mostRecent2Posts = createSelector(
+  state => state.blogPosts,
+  allPosts => allPosts.toList().takeLast(2)
+)
+
 export default createStructuredSelector({
-  posts: state => state.blogPosts,
+  posts: mostRecent2Posts,
   postDrafts: state => state.postDrafts,
   tags: tagsSelector,
   showLoginPopUp: showLoginPopUpSelector,
