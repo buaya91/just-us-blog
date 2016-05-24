@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import BlogPostContent from './BlogPostContent'
+import BlogPostSummary from './BlogPostContentSummary'
 import UpdatePostButton from '../update/UpdatePostButton'
 import SharePanel from './../share/SharePanel'
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card'
@@ -43,10 +43,10 @@ export default class BlogPost extends Component {
             titleStyle={style.title}
           />
           <CardText>
-            <BlogPostContent {...post} />
+            <BlogPostSummary {...post} />
           </CardText>
           <CardActions>
-            <SharePanel url={`${location.host}/post?pid${pid}`} title="Just Us Blog" />
+            <SharePanel url={`${location.host}/post?pid=${pid}`} title="Just Us Blog" />
           </CardActions>
         </Card>
       </div>
