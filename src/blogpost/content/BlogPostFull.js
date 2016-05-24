@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react'
-import BlogPostSummary from './BlogPostContentSummary'
 import UpdatePostButton from '../update/UpdatePostButton'
 import SharePanel from './../share/SharePanel'
+import TagGroup from '../tag/TagGroup'
+import marked from 'marked'
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card'
 
 const style = {
@@ -11,13 +12,19 @@ const style = {
     lineHeight: '3.5rem',
   },
   content: {
-    paddingLeft: '2rem',
-    paddingRight: '2rem',
-    paddingBottom: '1rem',
+    paddingLeft: '12rem',
+    paddingRight: '12rem',
+    paddingBottom: '2rem',
+  },
+  sharePanel: {
+    position: 'fixed',
+    right: '2em',
+    bottom: '2em',
+    size: 45,         // will be passed to share icon size
   },
 }
 
-export default class BlogPost extends Component {
+export default class BlogPostFull extends Component {
   componentWillMount() {
     const { actions, post, pid } = this.props
     actions.updatePostEditDraft(pid, post)
@@ -25,7 +32,8 @@ export default class BlogPost extends Component {
 
   render() {
     const { post, pid } = this.props
-    const { title, author, postAt } = post;
+    const { title, author, postAt, tags, content } = post;
+    const html = marked(content)
     const subtitle = (
       <span>
         <div>Post at: {postAt}</div>
@@ -43,10 +51,11 @@ export default class BlogPost extends Component {
             titleStyle={style.title}
           />
           <CardText>
-            <BlogPostSummary {...post} />
+            <div className="post-content" dangerouslySetInnerHTML={{ __html: html }}></div>
+            <TagGroup tags={tags} />
           </CardText>
           <CardActions>
-            <SharePanel url={`${location.host}/post?pid=${pid}`} title="Just Us Blog" />
+            <SharePanel style={style.sharePanel} url={`${location.host}/post?pid=${pid}`} title="Just Us Blog" />
           </CardActions>
         </Card>
       </div>
@@ -54,7 +63,7 @@ export default class BlogPost extends Component {
   }
 }
 
-BlogPost.propTypes = {
+BlogPostFull.propTypes = {
   actions: PropTypes.object.isRequired,
   pid: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   post: PropTypes.shape({
