@@ -6,7 +6,7 @@ export const newPostButtonSelector = createStructuredSelector({
   showButton: state => state.login.get('session'),
 })
 
-const idToShow = createSelector(
+export const idToShow = createSelector(
   state => state.uiState,
   uiState => uiState.get('showUpdatePopUp'),
 )
