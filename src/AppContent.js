@@ -15,6 +15,7 @@ import PostEditorPopUp from './blogpost/editor/PostEditorPopUp'
 const pathToIndexMapper = {
   '/': 0,
   '/login': 0,
+  '/post': 0,
   '/project': 1,
 }
 
@@ -37,9 +38,15 @@ export default class AppContent extends Component {
   render() {
     const { actions, location, idToShow, postDraft } = this.props
     const { pathname } = location
+    const pathIndex = pathToIndexMapper[pathname] || 0
+
     return (
       <div>
-        <LoginPopUp actions={actions} show={pathname === '/login'} closeLoginPopUp={() => browserHistory.push('/')} />
+        <LoginPopUp
+          actions={actions}
+          show={pathname === '/login'}
+          closeLoginPopUp={() => browserHistory.push('/post')}
+        />
         <PostEditorPopUp
           show={idToShow}
           closePopUp={() => actions.hideUpdatePostEditor(idToShow)}
@@ -50,9 +57,9 @@ export default class AppContent extends Component {
         <Drawer containerStyle={style.drawer}>
           <SideMenu />
         </Drawer>
-        <Tabs value={pathname === '/login' ? '/' : pathname} inkBarStyle={style.inkBar} style={style.mainContent} >
-          <Tab label="Writing" value="/" onActive={() => browserHistory.push('/')} />
-          <Tab label="Projects" value="/project" onActive={() => browserHistory.push('/project')} />
+        <Tabs value={pathIndex} inkBarStyle={style.inkBar} style={style.mainContent} >
+          <Tab label="Writing" value={0} onActive={() => browserHistory.push('/post')} />
+          <Tab label="Projects" value={1} onActive={() => browserHistory.push('/project')} />
         </Tabs>
         <SwipeableViews
           index={pathToIndexMapper[pathname]}

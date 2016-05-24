@@ -55,7 +55,7 @@ export default class BlogPostFull extends Component {
             <TagGroup tags={tags} />
           </CardText>
           <CardActions>
-            <SharePanel style={style.sharePanel} url={`${location.host}/post?pid=${pid}`} title="Just Us Blog" />
+            <SharePanel style={style.sharePanel} url={`${location.host}/post/${pid}`} title="Just Us Blog" />
           </CardActions>
         </Card>
       </div>
