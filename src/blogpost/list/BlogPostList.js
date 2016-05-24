@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import BlogPost from '../content/BlogPost'
+import BlogPostSummary from '../content/BlogPostSummary'
 
 import { List, ListItem } from 'material-ui/List'
 
@@ -22,7 +22,7 @@ export default class BlogPostList extends Component {
                 title={title}
                 subtitle={<span>by <b>{author}</b></span>}
               >
-                <BlogPost
+                <BlogPostSummary
                   key={pid}
                   actions={actions}
                   pid={pid}

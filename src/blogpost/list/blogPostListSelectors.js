@@ -1,8 +1,8 @@
 import { createStructuredSelector } from 'reselect'
-import { tagsSelector } from '../../homepage/homepageSelectors'
+import { idToShow } from '../update/updateSelectors'
 
 export const blogPostListSelector = createStructuredSelector({
+  idToShow,
   posts: state => state.blogPosts.toJS(),
   postDrafts: state => state.postDrafts.toJS(),
-  tags: state => tagsSelector(state).toJS(),
 })

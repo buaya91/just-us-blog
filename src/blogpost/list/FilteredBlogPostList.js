@@ -3,12 +3,8 @@ import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import BlogPostList from './BlogPostList'
 import { blogPostListSelector } from './blogPostListSelectors'
-import Tag from '../tag/Tag'
 
 import Paper from 'material-ui/Paper'
-import Drawer from 'material-ui/Drawer'
-import Menu from 'material-ui/Menu'
-import MenuItem from 'material-ui/MenuItem'
 
 const filter = (posts, params) => {
   const { pid, tag } = params
@@ -43,7 +39,7 @@ const style = {
 @connect(blogPostListSelector)
 export default class FilteredBlogPostList extends Component {
   render() {
-    const { posts, location, tags } = this.props
+    const { posts, location } = this.props
     const filtered = filter(posts, location.query)
     return (
       <div style={style}>
@@ -60,5 +56,4 @@ FilteredBlogPostList.propTypes = {
   location: PropTypes.object.isRequired,
   posts: PropTypes.object,
   postDrafts: PropTypes.object,
-  tags: PropTypes.array,
 }

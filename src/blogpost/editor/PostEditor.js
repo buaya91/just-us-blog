@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import NavBarContainer from '../../container/navbar/HorizontalNavContainer'
-import BlogPostContent from '../content/BlogPostContent'
+import TagGroup from '../tag/TagGroup'
+import marked from 'marked'
 
 export default class PostEditor extends Component {
 
@@ -58,7 +59,12 @@ export default class PostEditor extends Component {
 
     const previewView =
       (<div className="editor-panel">
-        {postDraft && <BlogPostContent {...postDraft} showAll />}
+        {postDraft && (
+          <div>
+            <div className="post-content" dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+            <TagGroup tags={tags} />
+          </div>
+        )}
       </div>)
 
     const views = [

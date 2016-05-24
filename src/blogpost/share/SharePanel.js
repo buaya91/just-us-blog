@@ -14,24 +14,24 @@ const FacebookIcon = generateShareIcon('facebook')
 const TwitterIcon = generateShareIcon('twitter')
 const LinkedinIcon = generateShareIcon('linkedin')
 
-const style = {
+const shareStyle = {
   display: 'flex',
   flexDirection: 'row',
 }
 
 export default class SharePanel extends Component {
   render() {
-    const { url, title } = this.props
+    const { url, title, style } = this.props
     return (
-      <div style={style}>
+      <div style={Object.assign(style, shareStyle)}>
         <FacebookShareButton url={url} title={title}>
-          <FacebookIcon size={32} round />
+          <FacebookIcon size={style.size} round />
         </FacebookShareButton>
         <TwitterShareButton url={url} title={title}>
-          <TwitterIcon size={32} round />
+          <TwitterIcon size={style.size} round />
         </TwitterShareButton>
         <LinkedinShareButton url={url} title={title}>
-          <LinkedinIcon size={32} round />
+          <LinkedinIcon size={style.size} round />
         </LinkedinShareButton>
       </div>
     )
@@ -41,4 +41,11 @@ export default class SharePanel extends Component {
 SharePanel.propTypes = {
   url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  style: PropTypes.object,
+}
+
+SharePanel.defaultProps = {
+  style: {
+    size: 32,
+  },
 }
