@@ -14,8 +14,6 @@ body {
     color: red; }
   body #directory {
     padding-left: 2em; }
-  body .post-content {
-    line-height: 1em; }
   body .collapse-button {
     font-size: 0.9em;
     color: gray;
@@ -131,6 +129,7 @@ body {
   display: flex;
   justify-content: flex-start;
   margin-top: 0.3em;
+  margin-bottom: 1em;
   flex-wrap: wrap;
   position: relative;
   top: 1em; }
