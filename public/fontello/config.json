@@ -7,8 +7,14 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "9755f76110ae4d12ac5f9466c9152031",
-      "css": "book",
+      "uid": "1e77a2yvsq3owssduo2lcgsiven57iv5",
+      "css": "pencil",
+      "code": 59394,
+      "src": "typicons"
+    },
+    {
+      "uid": "ab656e280958018a7859eba9a1eabbc7",
+      "css": "award",
       "code": 59392,
       "src": "fontawesome"
     }

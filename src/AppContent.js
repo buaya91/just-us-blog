@@ -11,7 +11,6 @@ import NewPostButton from './blogpost/update/NewPostButton'
 import BlogPostList from './blogpost/list/FilteredBlogPostList'
 import LoginPopUp from './login/LoginPopUp'
 import PostEditorPopUp from './blogpost/editor/PostEditorPopUp'
-import FontIcon from 'material-ui/FontIcon'
 
 const pathToIndexMapper = {
   '/': 0,
@@ -23,6 +22,7 @@ const pathToIndexMapper = {
 const style = {
   drawer: {
     width: '25vw',
+    overflowX: 'hidden',
   },
   mainContent: {
     width: '75vw',
@@ -61,12 +61,13 @@ export default class AppContent extends Component {
         <Tabs value={pathIndex} inkBarStyle={style.inkBar} style={style.mainContent} >
           <Tab
             label="Writing"
-            icon={<i className="demo-icon icon-book"></i>}
+            icon={<i className="icon-pencil"></i>}
             value={0}
             onActive={() => browserHistory.push('/post')}
           />
           <Tab
             label="Projects"
+            icon={<i className="icon-award"></i>}
             value={1}
             onActive={() => browserHistory.push('/project')}
           />
@@ -75,9 +76,10 @@ export default class AppContent extends Component {
           index={pathToIndexMapper[pathname]}
           resistance
           style={style.mainContent}
+          containerStyle={{ height: '100%' }}
         >
           <BlogPostList actions={actions} location={location} />
-          <div style={{ textAlign: 'center' }}>Under Construction ...</div>
+          <div style={{ textAlign: 'center', height: '100%' }}>Under Construction ...</div>
         </SwipeableViews>
         <NewPostButton actions={actions} />
       </div>
