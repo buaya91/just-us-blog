@@ -11,6 +11,7 @@ import NewPostButton from './blogpost/update/NewPostButton'
 import BlogPostList from './blogpost/list/FilteredBlogPostList'
 import LoginPopUp from './login/LoginPopUp'
 import PostEditorPopUp from './blogpost/editor/PostEditorPopUp'
+import FontIcon from 'material-ui/FontIcon'
 
 const pathToIndexMapper = {
   '/': 0,
@@ -58,8 +59,17 @@ export default class AppContent extends Component {
           <SideMenu />
         </Drawer>
         <Tabs value={pathIndex} inkBarStyle={style.inkBar} style={style.mainContent} >
-          <Tab label="Writing" value={0} onActive={() => browserHistory.push('/post')} />
-          <Tab label="Projects" value={1} onActive={() => browserHistory.push('/project')} />
+          <Tab
+            label="Writing"
+            icon={<i className="demo-icon icon-book"></i>}
+            value={0}
+            onActive={() => browserHistory.push('/post')}
+          />
+          <Tab
+            label="Projects"
+            value={1}
+            onActive={() => browserHistory.push('/project')}
+          />
         </Tabs>
         <SwipeableViews
           index={pathToIndexMapper[pathname]}

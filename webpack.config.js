@@ -47,7 +47,7 @@ module.exports = {
       {
         test: /\.css?$/,
         loaders: ['style', 'raw'],
-        include: __dirname
+        entry: path.join(__dirname, 'public')
       },
       { test: /\.(jpe?g|png|gif|svg)$/, 
         loader: 'url', 
