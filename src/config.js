@@ -5,6 +5,6 @@ export default {
   'about relationship, techs, programming, social experiment ' +
   'and everything else that interests us.',
   img: {
-    sunrise: 'http://buaya91.github.io/just-us-blog/sunrise.jpg',
+    sunrise: 'https://buaya91.github.io/just-us-blog/sunrise.jpg',
   },
 }
