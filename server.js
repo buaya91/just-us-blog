@@ -6,7 +6,10 @@ import express from 'express';
 import path from 'path';
 import http from 'http';
 import bodyParser from 'body-parser';
+import request from 'request';
 import webpackConfig from './webpack.config';
+
+import config from './src/config'
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDeveloping = !isProduction;
@@ -42,6 +45,16 @@ if (isDeveloping) {
 
 //  RESTful API
 const publicPath = path.resolve(__dirname);
+app.use('/api', function (req, res) {
+  var url = config.serverUrl + req.url;
+  req
+    .pipe(request(url))
+    .on('error', function (err) {
+      console.log('API error: ', err);
+      res.status(404).end();
+    })
+    .pipe(res);
+});
 app.use(bodyParser.json({ type: 'application/json' }))
 app.use(express.static(publicPath));
 
@@ -50,7 +63,7 @@ const port = isProduction ? (process.env.PORT || 80) : 3000;
 // this is necessary to handle URL correctly since client uses Browser History
 app.get('*', function (request, response){
   response.sendFile(path.resolve(__dirname, '', 'index.html'))
-})
+});
 
 // We need to use basic HTTP service to proxy
 // websocket requests from webpack
