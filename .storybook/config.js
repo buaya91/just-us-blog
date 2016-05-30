@@ -8,7 +8,6 @@ function loadStories() {
   // require('./HomepageStories')
   // require('./AboutUsStories')
   // require('./LoginStories')
-  require('./DisqusStories')
 }
 
 configure(loadStories, module);
