@@ -25,6 +25,7 @@ export const theme = getMuiTheme({
     textColor: colors.blueGrey900,
     // alternateTextColor: colors.fullWhite,
   },
+  fontFamily: 'Comic Sans MS, sans-serif',
 })
 
 class App extends Component {
