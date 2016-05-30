@@ -1,7 +1,7 @@
 /* color: #ff8d34 */
 
 body {
-  font-size: 100%;
+  font-size: 20px;
   font-family: "Comic Sans MS", sans-serif;
   input, textarea {
     font-size: 1em;
@@ -55,6 +55,11 @@ body {
   .reversed-list {
     display: flex;
     flex-direction: column-reverse;
+  }
+
+  .post-content {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
   }
 }
 
