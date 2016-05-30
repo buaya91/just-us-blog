@@ -6,15 +6,15 @@ const initialState = fromJS({})
 export default (state = initialState, action) => {
   switch (action.type) {
     case POSTS_ADDED: {
-      return action.payload.reduce((a, b) => a.set(b.pid, fromJS(b)), state)
+      return action.payload.reduce((a, b) => a.set(b.pid.toString(), fromJS(b)), state)
     }
     case POST_CREATE_SUCCESS: {
       const { pid, post } = action.payload
-      return state.set(+pid, fromJS(post))
+      return state.set(pid.toString(), fromJS(post))
     }
     case POST_UPDATE_SUCCESS: {
       const { pid, update } = action.payload
-      return state.set(+pid, fromJS(update))
+      return state.set(pid.toString(), fromJS(update))
     }
     default: return state
   }
