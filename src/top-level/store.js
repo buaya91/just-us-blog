@@ -14,7 +14,7 @@ const sagaMiddleware = createSagaMiddleware(
 )
 
 const localStorageEngine = createEngine('just-us')
-const filteredEngine = filter(localStorageEngine, ['blogPosts'])
+const filteredEngine = filter(localStorageEngine, ['blogPosts', 'login'])
 const localStorageMiddleware = createMiddleware(filteredEngine)
 
 const devtoolCreateStore = compose(
