@@ -7,6 +7,7 @@ import path from 'path';
 import http from 'http';
 import bodyParser from 'body-parser';
 import request from 'request';
+import httpProxy from 'http-proxy';
 import webpackConfig from './webpack.config';
 
 import config from './src/config'
@@ -15,7 +16,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const isDeveloping = !isProduction;
 
 const app = express();
-
+const proxy = httpProxy.createProxyServer({ target: 'ws://localhost:9000', ws: true });
 
 // Webpack dev server
 if (isDeveloping) {
@@ -45,6 +46,7 @@ if (isDeveloping) {
 
 //  RESTful API
 const publicPath = path.resolve(__dirname);
+
 app.use('/api', function (req, res) {
   var url = config.serverUrl + req.url;
   req
@@ -68,6 +70,11 @@ app.get('*', function (request, response){
 // We need to use basic HTTP service to proxy
 // websocket requests from webpack
 const server = http.createServer(app);
+
+server.on('upgrade', function (req, socket, head) {
+  console.log('proxied upgrade');
+  proxy.ws(req, socket, head);
+});
 
 server.listen(port, function (err, result) {
   if(err){
