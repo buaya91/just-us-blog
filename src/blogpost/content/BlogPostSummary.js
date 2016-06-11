@@ -55,10 +55,13 @@ export default class BlogPostSummary extends Component {
       </span>
     )
 
+    const fontFamily = author == 'Suhui' ? 'Comic Sans MS, sans-serif' : 'Roboto, sans-serif'
+    const cardStyle = Object.assign({ fontFamily }, style.content)
+
     return (
       <div>
         <UpdatePostButton {...this.props} pid={pid} />
-        <Card style={style.content}>
+        <Card style={cardStyle}>
           <CardTitle
             title={title}
             subtitle={subtitle}
