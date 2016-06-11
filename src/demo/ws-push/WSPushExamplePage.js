@@ -15,7 +15,7 @@ export default class WSPushExamplePage extends Component {
     if (this.ws) {
       return
     }
-    this.ws = new WebSocket(`ws://${window.location.host}/ws-push`)
+    this.ws = new WebSocket(`wss://${window.location.host}/ws-push`)
     this.ws.onmessage = msg => {
       this.updateCanvas(msg.data)
     }
