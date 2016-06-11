@@ -16,7 +16,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const isDeveloping = !isProduction;
 
 const app = express();
-const proxy = httpProxy.createProxyServer({ target: 'ws://localhost:9000', ws: true });
+const proxy = httpProxy.createProxyServer({ target: config.wsServerUrl, ws: true });
 
 // Webpack dev server
 if (isDeveloping) {
@@ -73,7 +73,9 @@ const server = http.createServer(app);
 
 server.on('upgrade', function (req, socket, head) {
   console.log('proxied upgrade');
-  proxy.ws(req, socket, head);
+  proxy.ws(req, socket, head, function (err) {
+    console.log('ws proxy error', err);
+  });
 });
 
 server.listen(port, function (err, result) {
