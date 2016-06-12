@@ -4,6 +4,7 @@ import UpdatePostButton from '../update/UpdatePostButton'
 import SharePanel from './../share/SharePanel'
 import TagGroup from '../tag/TagGroup'
 import marked from 'marked'
+import HighLight from 'react-highlight'
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card'
 import { darkBlack } from 'material-ui/styles/colors'
 
@@ -71,7 +72,9 @@ export default class BlogPostSummary extends Component {
             titleStyle={titleHover ? style.title.hover : style.title}
           />
           <CardText>
-            <div className="post-content" dangerouslySetInnerHTML={{ __html: html }}></div>
+            <HighLight className="post-content scala js" innerHTML>
+              {html}
+            </HighLight>
             <div className="collapse-button" onClick={() => toPost(pid)}>Read more ...</div>
             <TagGroup tags={tags} />
           </CardText>

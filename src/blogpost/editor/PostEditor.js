@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import NavBarContainer from '../../container/navbar/HorizontalNavContainer'
 import TagGroup from '../tag/TagGroup'
 import marked from 'marked'
+import HighLight from 'react-highlight'
 
 export default class PostEditor extends Component {
 
@@ -61,7 +62,9 @@ export default class PostEditor extends Component {
       (<div className="editor-panel">
         {postDraft && (
           <div>
-            <div className="post-content" dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+            <HighLight innerHTML className="scala post-content">
+              {marked(content)}
+            </HighLight>
             <TagGroup tags={tags} />
           </div>
         )}

@@ -3,10 +3,9 @@ import UpdatePostButton from '../update/UpdatePostButton'
 import SharePanel from './../share/SharePanel'
 import TagGroup from '../tag/TagGroup'
 import marked from 'marked'
+import HighLight from 'react-highlight'
 import DisqusThread from 'react-disqus-thread'
-
 import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card'
-import Divider from 'material-ui/Divider'
 import Snackbar from 'material-ui/Snackbar'
 
 const style = {
@@ -65,7 +64,9 @@ export default class BlogPostFull extends Component {
             titleStyle={style.title}
           />
           <CardText>
-            <div className="post-content" dangerouslySetInnerHTML={{ __html: html }}></div>
+            <HighLight className="post-content scala js" innerHTML>
+              {html}
+            </HighLight>
             <TagGroup tags={tags} />
             <DisqusThread
               shortname="just-usxyz"
