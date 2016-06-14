@@ -55,10 +55,10 @@ export default class AppContent extends Component {
           updatePostDraft={post => actions.updatePostEditDraft(idToShow, post)}
           submitChange={post => actions.postUpdateRequested(idToShow, post)}
         />
-        <Drawer containerStyle={style.drawer}>
+        <Drawer className="side-panel" containerStyle={style.drawer}>
           <SideMenu />
         </Drawer>
-        <Tabs value={pathIndex} inkBarStyle={style.inkBar} style={style.mainContent} >
+        <Tabs value={pathIndex} inkBarStyle={style.inkBar} className="main-content" >
           <Tab
             label="Writing"
             icon={<i className="icon-pencil"></i>}
@@ -73,9 +73,9 @@ export default class AppContent extends Component {
           />
         </Tabs>
         <SwipeableViews
+          className="main-content"
           index={pathToIndexMapper[pathname]}
           resistance
-          style={style.mainContent}
           containerStyle={{ height: '100%' }}
         >
           <BlogPostList actions={actions} location={location} />

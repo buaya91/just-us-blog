@@ -57,7 +57,7 @@ export default class BlogPostFull extends Component {
     return (
       <div>
         <UpdatePostButton {...this.props} pid={pid} />
-        <Card style={cardStyle}>
+        <Card className="card" style={cardStyle}>
           <CardTitle
             title={title}
             subtitle={subtitle}

@@ -28,9 +28,6 @@ const filter = (posts, params) => {
 
 const style = {
   display: 'flex',
-  paper1: {
-    flex: '0 0 200px',
-  },
   paper2: {
     flex: '5 2 auto',
   },

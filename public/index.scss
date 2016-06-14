@@ -1,7 +1,43 @@
 /* color: #ff8d34 */
 
-body {
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 12px;
+
+    .side-panel {
+      display: none;
+    }
+
+    .main-content {
+      width: 100vw;
+      position: static;
+      left: auto;
+    }
+
+    .card {
+      padding-left: .5rem !important;
+      padding-right: .5rem !important;
+    }
+
+    img {
+      max-width: 90%;
+      height: auto;
+    }
+    .material-icons {
+      padding-left: 5px !important;
+    }
+  }
+}
+@media only screen and (min-width: 601px) {
   font-size: 20px;
+  .main-content {
+    width: 75vw;
+    position: relative;
+    left: 25vw;
+  }
+}
+
+body {
   font-family: "Comic Sans MS", sans-serif;
   input, textarea {
     font-size: 1em;

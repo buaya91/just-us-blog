@@ -6,6 +6,7 @@ import { List, ListItem } from 'material-ui/List'
 const style = {
   display: 'flex',
   flexDirection: 'column-reverse',
+  maxWidth: '100vw',
 }
 
 export default class BlogPostList extends Component {
