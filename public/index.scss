@@ -2,7 +2,7 @@
 
 @media only screen and (max-width: 600px) {
   body {
-    font-size: 12px;
+    font-size: 12px!important;
 
     .side-panel {
       display: none;
@@ -28,16 +28,15 @@
     }
   }
 }
-@media only screen and (min-width: 601px) {
-  font-size: 20px;
-  .main-content {
-    width: 75vw;
-    position: relative;
-    left: 25vw;
-  }
+
+.main-content {
+  width: 75vw;
+  position: relative;
+  left: 25vw;
 }
 
 body {
+  font-size: 20px;
   font-family: "Comic Sans MS", sans-serif;
   input, textarea {
     font-size: 1em;
