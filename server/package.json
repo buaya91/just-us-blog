@@ -4,12 +4,13 @@
   "description": "just us front end express server",
   "main": "server.prod.js",
   "scripts": {
-    "build": "babel server.prod.js -o dist/server.prod.js"
+    "build": "babel server.prod.js -o dist/server.prod.js",
+    "start": "npm run build && nohup node dist/server.prod.js &"
   },
   "dependencies": {
     "body-parser" : "1.15.2",
     "http-proxy": "1.14.0",
-    "express": "4.14.0",
+    "express": "4.14.0"
   },
   "author": "",
   "license": "ISC"
