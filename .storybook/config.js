@@ -1,5 +1,5 @@
 import { configure } from '@kadira/storybook';
-import '../public/index.css'
+import '../server/public/index.css'
 
 function loadStories() {
   // require('./BlogPostStories')
