@@ -2,7 +2,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     'gh-pages': {
       options: {
-        base: 'dist',
+        base: 'server/public',
       },
       src: ['**'],
     },
